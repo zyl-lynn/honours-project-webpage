@@ -1,0 +1,2623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a Ghostwriting Industry Followed China's Students Abroad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  /* Core Palette — Haze Blue / Cool Gray-Blue */
+  --haze-50:  #f6f8fb;
+  --haze-100: #e8ecf2;
+  --haze-200: #cfd8e6;
+  --haze-300: #a8bace;
+  --haze-400: #7d9ab5;
+  --haze-500: #5a7d9a;
+  --haze-600: #3f6180;
+  --haze-700: #2f4d68;
+  --haze-800: #213650;
+  --haze-900: #152438;
+  --haze-950: #0c1824;
+
+  /* Accent */
+  --accent-blue: #3a6fa0;
+  --accent-muted: #6b8fa8;
+  --accent-line: #b8ccd9;
+
+  /* Text */
+  --text-primary: #1a2332;
+  --text-secondary: #3d5166;
+  --text-muted: #637b8f;
+  --text-light: #94aab8;
+  --text-white: #f8fafc;
+
+  /* Backgrounds */
+  --bg-page: #ffffff;
+  --bg-card: #ffffff;
+  --bg-dark: #1a2d40;
+  --bg-mid: #e4ebf2;
+  --bg-pullquote: #dce8f0;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Spacing */
+  --col-text: 680px;
+  --col-wide: 960px;
+  --col-full: 1200px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3 { font-family: var(--font-serif); }
+
+.text-col {
+  max-width: var(--col-text);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.wide-col {
+  max-width: var(--col-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.full-col {
+  max-width: var(--col-full);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+p {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  color: var(--text-primary);
+  font-weight: 300;
+}
+
+p + p { margin-top: 1.4em; }
+
+/* ============================================================
+   HEADER / HERO
+   ============================================================ */
+.hero {
+  background: var(--bg-dark);
+  color: var(--text-white);
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(58,111,160,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 10% 80%, rgba(47,77,104,0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: var(--col-text);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--haze-300);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--haze-700);
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  margin-bottom: 20px;
+}
+
+.hero-deck {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--haze-300);
+  line-height: 1.5;
+  margin-bottom: 40px;
+  border-left: 2px solid var(--haze-600);
+  padding-left: 16px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--haze-400);
+  font-family: var(--font-sans);
+  padding-top: 32px;
+  border-top: 1px solid var(--haze-800);
+}
+
+.hero-meta strong { color: var(--haze-200); font-weight: 500; }
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+.article-body {
+  padding: 60px 0 80px;
+}
+
+.section {
+  margin-bottom: 80px;
+}
+
+.section-header {
+  max-width: var(--col-text);
+  margin: 0 auto 32px;
+  padding: 0 24px;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-muted);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--haze-800);
+  line-height: 1.2;
+}
+
+/* ============================================================
+   PULL QUOTE
+   ============================================================ */
+.pullquote {
+  background: var(--bg-pullquote);
+  border-left: 3px solid var(--accent-blue);
+  padding: 28px 32px;
+  margin: 40px 0;
+  max-width: var(--col-text);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pullquote blockquote {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--haze-800);
+  line-height: 1.5;
+}
+
+.pullquote cite {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--accent-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   INFOGRAPHIC CONTAINERS
+   ============================================================ */
+.infographic-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--haze-200);
+  border-radius: 4px;
+  margin: 48px auto;
+  overflow: hidden;
+}
+
+.infographic-wrap.wide {
+  max-width: var(--col-wide);
+}
+
+.infographic-wrap.text-width {
+  max-width: var(--col-text);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infographic-header {
+  background: var(--haze-900);
+  padding: 20px 28px 16px;
+  border-bottom: 1px solid var(--haze-700);
+}
+
+.infographic-header h3 {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.infographic-header p {
+  font-size: 0.78rem;
+  color: var(--haze-500);
+  font-weight: 500;
+}
+
+.infographic-body {
+  padding: 28px;
+}
+
+/* ============================================================
+   CHART: STUDENT ENROLLMENT LINE CHART
+   ============================================================ */
+.chart-svg-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================================
+   CHART: HORIZONTAL BAR (CHALLENGES)
+   ============================================================ */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 240px 1fr 52px;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 640px) {
+  .bar-row {
+    grid-template-columns: 140px 1fr 48px;
+    font-size: 0.75rem;
+  }
+}
+
+.bar-label { color: var(--text-secondary); font-weight: 400; text-align: right; }
+
+.bar-track {
+  background: var(--haze-100);
+  height: 22px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--haze-600), var(--haze-400));
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  width: 0;
+}
+
+.bar-fill.highlight {
+  background: linear-gradient(90deg, var(--accent-blue), var(--haze-400));
+}
+
+.bar-pct {
+  font-weight: 600;
+  color: var(--haze-700);
+  font-size: 0.82rem;
+}
+
+/* ============================================================
+   CHART: PIE / DONUT (Conflict question)
+   ============================================================ */
+.donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.donut-legend {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.83rem;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-pct {
+  font-weight: 600;
+  color: var(--haze-700);
+  margin-left: auto;
+  padding-left: 8px;
+}
+
+/* ============================================================
+   CHART: STACKED / GROUPED (Usage)
+   ============================================================ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.stat-card {
+  background: var(--haze-50);
+  border: 1px solid var(--haze-200);
+  padding: 20px 16px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--haze-700);
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* ============================================================
+   HAND-DRAWN TIMELINE — PEIYU
+   ============================================================ */
+.handdrawn-section {
+  background: var(--haze-50);
+  border-top: 1px solid var(--haze-200);
+  border-bottom: 1px solid var(--haze-200);
+  padding: 48px 0;
+  margin: 48px 0;
+}
+
+.handdrawn-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.handdrawn-header .sketch-label {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: var(--accent-muted);
+  margin-bottom: 6px;
+}
+
+.handdrawn-header h3 {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: var(--haze-800);
+  font-weight: 700;
+}
+
+/* ============================================================
+   DEMOGRAPHICS BLOCK
+   ============================================================ */
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--haze-200);
+  border: 1px solid var(--haze-200);
+}
+
+.demo-cell {
+  background: var(--bg-card);
+  padding: 24px;
+}
+
+.demo-cell-title {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-muted);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   PLATFORM TABLE
+   ============================================================ */
+.platform-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.platform-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+}
+
+.platform-name {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.platform-track {
+  background: var(--haze-100);
+  height: 16px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.platform-fill-mainland {
+  position: absolute;
+  left: 0; top: 0; height: 100%;
+  background: var(--haze-600);
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+.platform-fill-overseas {
+  position: absolute;
+  left: 0; top: 0; height: 100%;
+  background: var(--haze-400);
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+.platform-labels {
+  display: flex;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   WORRY / INTEGRITY CHARTS
+   ============================================================ */
+.likert-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.likert-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+}
+
+.likert-label { width: 120px; flex-shrink: 0; }
+
+.likert-track {
+  flex: 1;
+  background: var(--haze-100);
+  height: 20px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.likert-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  width: 0;
+}
+
+.likert-count {
+  font-weight: 600;
+  color: var(--haze-700);
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   SECTION DIVIDER
+   ============================================================ */
+.divider {
+  max-width: var(--col-text);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.divider hr {
+  border: none;
+  border-top: 1px solid var(--haze-200);
+  margin: 40px 0;
+}
+
+/* ============================================================
+   AGENCY PROFILE CARDS (Two-panel)
+   ============================================================ */
+.agency-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--haze-200);
+}
+
+@media (max-width: 700px) {
+  .agency-cards { grid-template-columns: 1fr; }
+  .demo-grid { grid-template-columns: 1fr; }
+}
+
+.agency-card {
+  background: var(--bg-card);
+  padding: 28px;
+}
+
+.agency-card-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--haze-900);
+  color: var(--haze-300);
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.agency-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--haze-800);
+  margin-bottom: 8px;
+}
+
+.agency-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.agency-card .price-tag {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: var(--haze-50);
+  border-left: 2px solid var(--accent-line);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.agency-card .price-tag strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--haze-700);
+  font-family: var(--font-serif);
+  margin-bottom: 2px;
+}
+
+/* ============================================================
+   DATA NOTE / CAPTION
+   ============================================================ */
+.data-note {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-style: italic;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--haze-100);
+}
+
+/* ============================================================
+   CHART LEGEND ROW
+   ============================================================ */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+
+.chart-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   SCROLL ANIMATION
+   ============================================================ */
+.animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animate-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   IMAGE BLOCK TEMPLATE
+   ============================================================ */
+.image-block {
+  margin: 48px auto;
+}
+
+.image-block.full-width {
+  max-width: 100%;
+  padding: 0;
+}
+
+.image-block.wide {
+  max-width: var(--col-wide);
+  padding: 0 24px;
+}
+
+.image-block.text-width {
+  max-width: var(--col-text);
+  padding: 0 24px;
+}
+
+.image-block figure {
+  margin: 0;
+}
+
+.image-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-block figcaption {
+  padding: 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-top: 1px solid var(--haze-200);
+  margin-top: 2px;
+}
+
+.image-caption-text {
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.image-credit {
+  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* ============================================================
+   AUDIO PLAYER TEMPLATE
+   ============================================================ */
+.audio-block {
+  max-width: var(--col-text);
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.audio-player {
+  background: var(--bg-dark);
+  border: 1px solid var(--haze-700);
+  border-radius: 4px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.audio-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--haze-500);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.audio-btn:hover {
+  border-color: var(--haze-300);
+  background: rgba(90,125,154,0.15);
+}
+
+.audio-btn svg { fill: var(--haze-300); }
+
+.audio-content { flex: 1; }
+
+.audio-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--haze-500);
+  margin-bottom: 4px;
+}
+
+.audio-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--haze-200);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.audio-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.audio-progress-track {
+  flex: 1;
+  height: 3px;
+  background: var(--haze-700);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.audio-progress-fill {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  width: 30%;
+  background: var(--haze-400);
+  border-radius: 2px;
+}
+
+.audio-progress-thumb {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--haze-300);
+}
+
+.audio-time {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--haze-500);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--haze-900);
+  color: var(--haze-500);
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+footer strong { color: var(--haze-300); font-weight: 500; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.9rem; }
+  .hero-deck { font-size: 1.05rem; }
+  .infographic-body { padding: 16px; }
+  .agency-cards { grid-template-columns: 1fr; }
+  .platform-row { grid-template-columns: 100px 1fr 1fr; }
+}
+
+/* ============================================================
+   HAND-DRAWN SVG STYLES
+   ============================================================ */
+.sketch-text {
+  font-family: var(--font-hand);
+  fill: var(--haze-700);
+}
+
+.sketch-line {
+  stroke: var(--haze-600);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sketch-arrow {
+  stroke: var(--haze-500);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.sketch-box {
+  fill: var(--haze-50);
+  stroke: var(--haze-500);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+}
+
+.sketch-highlight {
+  fill: var(--bg-pullquote);
+  stroke: var(--accent-line);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.sketch-accent {
+  fill: var(--haze-800);
+  stroke: none;
+}
+
+/* ============================================================
+   PRICE INFO PANEL
+   ============================================================ */
+.price-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.price-item {
+  padding: 16px;
+  background: var(--haze-50);
+  border: 1px solid var(--haze-200);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.price-range {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--haze-700);
+  display: block;
+}
+
+.price-desc {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* ============================================================
+   USAGE BREAKDOWN
+   ============================================================ */
+.usage-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.usage-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.usage-label {
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  width: 170px;
+  flex-shrink: 0;
+}
+
+.usage-bar-wrap {
+  flex: 1;
+  background: var(--haze-100);
+  height: 26px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.usage-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  width: 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Investigative Report &mdash; Academic Integrity</div>
+    <h1>Ghost Writing: How shadow writers follow Chinese students abroad</h1>
+    <p class="hero-deck">A sprawling industry of contract cheating has taken root in China, quietly following students across borders.</p>
+    <div class="hero-meta">
+      <span><strong>By</strong> ZHANG Yilin</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     SECTION 1 — OPENING NARRATIVE
+     ============================================================ -->
+<div class="article-body">
+  <div class="image-block wide" style="margin:0 auto 48px;">
+   <figure>
+     <img src="image1.jpg" alt="Description" style="width:100%; display:block;">
+     <figcaption>
+       <span class="image-caption-text">Students are studying in the library at Hong Kong Baptist University during final weeks.</span>
+       <span class="image-credit">Photo: ZHANG Yilin</span>
+     </figcaption>
+   </figure>
+  </div>
+<section class="section">
+  <div class="text-col animate-in">
+    <p><span class="pseudonym-star">*</span>L, a 23-year-old graduate student at Macau University of Science and Technology, never intended to be an academic ghostwriter, a “gun for hire” who writes essays for students willing to pay.</p>
+
+    <p>He had started a small side business on the Chinese social media platform Xiaohongshu and the secondhand e-commerce platform Goofish, offering interview coaching and personal statement and curriculum vitae polishing services to mainland students hoping to study overseas.</p>
+    <p>His fee was about 400 yuan per session.</p>
+
+    <p>But after one interview coaching session, a private message from a client led him, for the first time, to cross the line into ghostwriting.</p
+    <p></p>
+    <p>“They felt my interview coaching was pretty good, so they asked if I'd be willing to take their essay and write it for them,” L recalled. It was a 1200-word coursework assignment for a British university. L charged 800 yuan for the service.</p>
+  </div>
+
+  <div class="pullquote text-col animate-in">
+    <blockquote>"I had never written for anyone else before. I didn't know what a fair price was. I took the job simply because they were paying."</blockquote>
+    <cite>L, graduate student, Macau University of Science and Technology</cite>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>It was L's first commission. It was also his last.</p>
+
+    <p>He knew nothing about what British universities required. </p>
+    <p>He had no idea what form a 1,200-word coursework essay should take, what formatting it demanded, or what citation standards applied.</p>
+
+    <p>L had done his undergraduate studies on the mainland and had only been in Macau for several months.</p> 
+    <p>Still adjusting to his new academic environment, he was himself unfamiliar with the assignment formats and expectations of overseas universities — writing for someone else, under those conditions, felt beyond him.</p>
+    <p>“I can mess up my own formatting. I can't even get my own work right — and am I supposed to do it for someone else?” There was a trace of self-deprecation in his voice.</p>
+    <p>He recalled his first assignment after coming to Macau for his master’s degree.</p> 
+    <p>The instructor’s comment read, “Your logical structure is fine, but the formatting doesn’t follow APA at all,” and it dragged what could have been an A minus down to a B plus. He was afraid of messing it up—and even more afraid that if he did, the other party would come after him. Out of both caution and conscience, he never took another order after that. </p>
+    <p>But in providing such ghostwriting services, some people are far bolder—and they make far more money, too.</p>
+    <p>L was only one participant in a vast industry.</p>
+    <p>Across mainland China, many vendors offer ghostwriting services. They are active on social media platforms such as Xiaohongshu and WeChat, and can also be found on Goofish, the secondhand trading platform.</p>
+    <p>Their clients include not only university students studying in mainland China, but also Chinese international students overseas, as these services have expanded beyond the border.</p>
+    <p></p>
+    <!-- <div class="wide-col animate-in">
+      <figure class="video-block">
+        <div class="video-ratio">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Ppm3l1iZraA?si=6zfbkM3lpJZioYnX" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <figcaption class="video-caption">
+          <span class="video-caption-text">This video explains how universities define academic ghostwriting. </span>
+          <span class="video-credit">Video: ZHANG Yilin</span>
+        </figcaption>
+     </figure>
+    </div> -->
+    
+    <div class="image-block wide" style="margin:0 auto 48px;">
+      <figure>
+        <video controls width="100%" poster="cover_image.png">
+          <source src="FYP_Video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video playback, please click<a href="https://www.youtube.com/watch?v=Ppm3l1iZraA" target="_blank"> here </a> to download the video.
+        </video>
+        <figcaption>
+          <span class="image-caption-text">This video explains how universities define academic ghostwriting.</span>
+          <span class="image-credit">Video: ZHANG Yilin</span>
+        </figcaption>
+      </figure>
+    </div>
+    
+      <!--<figcaption class="video-caption">
+          <span class="video-caption-text">This video explains how universities define academic ghostwriting </span>
+          <span class="video-credit">©️ZHANG Yilin</span>
+      </figcaption>-->
+    
+    <p></p>
+    <p>Take Hong Kong as an example. According to the academic integrity policy of Hong Kong Baptist University, ghostwriting is classified as a form of academic dishonesty. It refers to having someone perform academic work—either partially or in full—on a student’s behalf. </p>
+    <p>Essay and paper mills, meanwhile, involve purchasing or downloading ready-made or machine-generated assignments.</p>
+    <p>All eight publicly funded universities in Hong Kong adopt a zero-tolerance policy toward academic dishonesty, and half of them explicitly state that ghostwriting is prohibited in their academic integrity policy. </p>
+    <p>These universities are The University of Hong Kong, The Hong Kong University of Science and Technology, Hong Kong Polytechnic University, and Hong Kong Baptist University.</p>
+    <p>Students found to have commissioned ghostwritten papers or to have plagiarised may face failing grades, and in some cases may even be expelled.</p>
+    <p>Many mainland Chinese students who go abroad to study often struggle with language and an unfamiliar academic system, and some end up paying others to do the writing for them. </p>
+    <p>“From a market perspective, demand inevitably gives rise to supply. Therefore, holding other factors constant, more students mean more ghostwriting services,” said Stella Liang Shuyu, a marketing researcher and course instructor from Hong Kong Baptist University, “This follows the logic of the market, where the invisible hand adjusts the level of supply.”</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2 — A RISING BUSINESS (Student enrollment chart)
+     ============================================================ -->
+<section class="section">
+  <div class="section-header animate-in">
+    <div class="section-label">About the Business</div>
+    <h2 class="section-title">An Emerging Business</h2>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>More and more mainland students have chosen to study abroad. Take Hong Kong as an example, the number of mainland students enrolling each year has grown steadily over the past five years. </p>
+    <p>According to data from Hong Kong’s University Grants Committee, the annual intake of mainland undergraduate students at the city’s eight publicly funded universities has steadily increased over the past decade, reaching approximately 7,500 in the 2024–25 academic year.</p>
+  </div>
+
+  <!-- CHART: Annual Mainland Student Intake -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>Annual Intake of Mainland Undergraduate Students in Hong Kong</h3>
+        <h3> (2015–2024)</h3>
+        
+      </div>
+      <div class="infographic-body">
+        <svg id="lineChart" viewBox="0 0 860 340" width="100%" style="display:block; max-height:380px;">
+          <defs>
+            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3f6180" stop-opacity="0.22"/>
+              <stop offset="100%" stop-color="#3f6180" stop-opacity="0.01"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Grid lines -->
+          <g stroke="#e4ebf2" stroke-width="1">
+            <line x1="80" y1="40" x2="820" y2="40"/>
+            <line x1="80" y1="96" x2="820" y2="96"/>
+            <line x1="80" y1="152" x2="820" y2="152"/>
+            <line x1="80" y1="208" x2="820" y2="208"/>
+            <line x1="80" y1="264" x2="820" y2="264"/>
+            <line x1="80" y1="290" x2="820" y2="290"/>
+          </g>
+
+          <!-- Y axis labels -->
+          <g font-family="IBM Plex Sans, sans-serif" font-size="15" fill="#94aab8" text-anchor="end">
+            <text x="72" y="44">8,000</text>
+            <text x="72" y="100">7,000</text>
+            <text x="72" y="156">6,000</text>
+            <text x="72" y="212">5,000</text>
+            <text x="72" y="268">4,000</text>
+            <text x="72" y="293">3,500</text>
+          </g>
+
+          <!-- Area fill -->
+          <path id="areaPath" fill="url(#areaGrad)" d=""/>
+
+          <!-- Line -->
+          <path id="linePath" fill="none" stroke="#3f6180" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d=""/>
+
+          <!-- Dots -->
+          <g id="dots"></g>
+
+          <!-- X axis labels -->
+          <g font-family="IBM Plex Sans, sans-serif" font-size="15" fill="#94aab8" text-anchor="middle">
+            <text x="117" y="312">2015</text>
+            <text x="199" y="312">2016</text>
+            <text x="281" y="312">2017</text>
+            <text x="363" y="312">2018</text>
+            <text x="445" y="312">2019</text>
+            <text x="527" y="312">2020</text>
+            <text x="609" y="312">2021</text>
+            <text x="691" y="312">2022</text>
+            <text x="773" y="312">2023</text>
+            <text x="820" y="312">2024</text>
+          </g>
+
+          <!-- Axes -->
+          <line x1="80" y1="290" x2="820" y2="290" stroke="#cfd8e6" stroke-width="1"/>
+          <line x1="80" y1="40" x2="80" y2="290" stroke="#e4ebf2" stroke-width="1"/>
+
+          <!-- Latest callout -->
+          <g id="callout" opacity="0">
+            <rect x="783" y="18" width="65" height="25" rx="2" fill="#213650"/>
+            <text x="815" y="35" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="700" fill="#b8ccd9" text-anchor="middle">7,496</text>
+          </g>
+
+          <!-- +40% annotation -->
+          <g id="annotation" opacity="0">
+            <text x="700" y="115" font-family="Roboto, sans-serif" font-size="22" font-weight="bold" fill="#5a7d9a">+40%</text>
+            <text x="700" y="130" font-family="Roboto, sans-serif" font-size="17" font-weight="bold" fill="#5a7d9a">in one year</text>
+            <path d="M758 132 Q745 165 800 155" fill="none" stroke="#7d9ab5" stroke-width="1.2" stroke-dasharray="3,2"/>
+          </g>
+        </svg>
+
+        <p class="data-note">Data Source: <a href="https://cdcf.ugc.edu.hk" target="_blank" class="source-link">Hong Kong University Grants Committee (UGC)</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>The University of Hong Kong's latest figures show that 22 per cent of their undergraduates come from the mainland, and nearly two in three taught postgraduate students are mainland Chinese.</p>
+
+    <p>The shift in the academic environment has brought no small degree of dislocation.</p> 
+    <p>Dr. Wang Xiaoxia, who teaches in the English department at Hebei University of Economics and Business, believes that most mainland students have grown up within a test-oriented education system — gaokao, the entrance examination to universities. The system involved repetitive drilling, giving standardised answers, and a culture of using final examinations to determine everything. </p>
+    <p>“If they choose to study abroad, they need to adapt to these [overseas teaching methods and academic norms],” Wang said.</p>
+    <p></p>
+  </div>
+
+  <div class="image-block wide" style="margin:0 auto 48px;">
+   <figure>
+     <img src="image4.jpg" alt="Description" style="width:100%; display:block;">
+     <figcaption>
+       <span class="image-caption-text">Students are walking though Public Garden near Emerson College in Boston, the United States.</span>
+       <span class="image-credit">Photo: ZHANG Yilin</span>
+     </figcaption>
+   </figure>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>When mainland students walk into overseas universities that conduct classes entirely in English, emphasise critical thinking, and demand independent research and original argumentation, they encounter an entirely new academic language and framework of thought.</p>
+    <p>L described a similar sense of disorientation after arriving in Macau for his postgraduate studies. He struggled to adjust, whether it was studying in English—a language he was not comfortable with—or adapting to a different teaching approach and academic system.</p>
+    <p>“I feel like the professors here in Macau take academics very seriously. If you're wrong, you're wrong — don't try to argue your way out of it,” he said. He recalled once scoring just one out of ten on a quiz because he wasn’t familiar with the way things worked.</p>
+    <p>“But back in mainland China, if you’re on good terms with the teacher, you tend to get higher marks,” L added.</p>
+    <p>In his undergraduate years on the mainland, much of his assessment had been non-standardised. If a student cultivated a good relationship with a teacher in advance, the teacher might give a relatively favourable grade based on the student's general performance.</p>
+    <p>“That’s completely impossible here in Macau—you wouldn’t even dare bring it up to a professor,” L added. “They might tell you it is academic dishonesty and send you a formal accusation letter.”</p>
+    <p>To find out the extent and reasons behind students spending on ghostwriting services, the reporter conducted an anonymous questionnaire to students from mainland China currently enrolled at universities on the mainland or overseas.</p>
+    <p>The survey was distributed on social media platforms WeChat and Xiaohongshu, which are among China’s biggest social media channels and are popular with mainland students.</p>
+    <p>A total of 159 valid responses were collected. Respondents were primarily undergraduates between the ages of 21 and 23.</p>
+    <p>Approximately half were studying at mainland Chinese universities, around 40 per cent at universities in Hong Kong, and the remainder at institutions in the United States, the United Kingdom, Australia, and elsewhere.</p>
+</section>
+  <!-- <div class="pullquote text-col animate-in">
+    <blockquote>"If they choose to study abroad, they need to adapt to these overseas teaching methods and academic norms."</blockquote>
+    <cite>Dr. Wang Xiaoxia, Hebei University of Economics and Business</cite>
+  </div> -->
+
+<!-- ============================================================
+     SECTION 3 — SURVEY DEMOGRAPHICS
+     ============================================================ -->
+
+<section class="section">
+
+  <!-- DEMOGRAPHICS INFOGRAPHIC -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>Respondent Demographics: Survey on Essay Ghostwriting</h3>
+        <p>Analysis of 159 participants from university channels</p>
+      </div>
+      <div class="infographic-body">
+        <div class="demo-grid">
+          <!-- Total -->
+          <div class="demo-cell" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <div class="demo-cell-title">Total Respondents</div>
+            <div style="font-family:var(--font-serif); font-size:4rem; font-weight:700; color:var(--haze-700); line-height:1;">159</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:6px;">Valid survey responses collected</div>
+          </div>
+
+          <!-- Location -->
+          <div class="demo-cell">
+            <div class="demo-cell-title">University Geographic Distribution</div>
+            <div class="bar-chart" style="gap:8px;">
+              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                <div class="bar-label" style="font-size:0.78rem;">Mainland China</div>
+                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="70" style="background:var(--haze-600);"></div></div>
+                <div class="bar-pct">70</div>
+              </div>
+              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                <div class="bar-label" style="font-size:0.78rem;">Hong Kong SAR</div>
+                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="59" style="background:var(--haze-500);"></div></div>
+                <div class="bar-pct">59</div>
+              </div>
+              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                <div class="bar-label" style="font-size:0.78rem;">United States</div>
+                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="4" style="background:var(--haze-400);"></div></div>
+                <div class="bar-pct">4</div>
+              </div>
+              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                <div class="bar-label" style="font-size:0.78rem;">Australia</div>
+                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-400);"></div></div>
+                <div class="bar-pct">3</div>
+              </div>
+              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                <div class="bar-label" style="font-size:0.78rem;">United Kingdom</div>
+                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-400);"></div></div>
+                <div class="bar-pct">3</div>
+              </div>
+              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                <div class="bar-label" style="font-size:0.78rem;">Macau &amp; others</div>
+                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-300);"></div></div>
+                <div class="bar-pct">3</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Age -->
+          <div class="demo-cell">
+            <div class="demo-cell-title">Age of Respondents</div>
+            <svg viewBox="0 0 320 150" width="100%" style="max-height:150px; display:block;">
+              <!-- Bars -->
+              <g font-family="IBM Plex Sans, sans-serif">
+                <!-- 18-20: 38 -->
+                <rect x="30" y="105" width="50" height="0" fill="var(--haze-500)" rx="2" id="bar-18-20"/>
+                <!-- 21-23: 80 -->
+                <rect x="100" y="105" width="50" height="0" fill="var(--haze-600)" rx="2" id="bar-21-23"/>
+                <!-- 24-26: 27 -->
+                <rect x="170" y="105" width="50" height="0" fill="var(--haze-400)" rx="2" id="bar-24-26"/>
+                <!-- 27+: 12 -->
+                <rect x="240" y="105" width="50" height="0" fill="var(--haze-300)" rx="2" id="bar-27plus"/>
+
+                <!-- Labels -->
+                <text x="55" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-18-20">38</text>
+                <text x="125" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-21-23">80</text>
+                <text x="195" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-24-26">27</text>
+                <text x="265" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-27plus">12</text>
+
+                <!-- X labels -->
+                <text x="55" y="134" text-anchor="middle" font-size="10" fill="#94aab8">18–20</text>
+                <text x="125" y="134" text-anchor="middle" font-size="10" fill="#94aab8">21–23</text>
+                <text x="195" y="134" text-anchor="middle" font-size="10" fill="#94aab8">24–26</text>
+                <text x="265" y="134" text-anchor="middle" font-size="10" fill="#94aab8">27+</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Education level -->
+          <div class="demo-cell">
+            <div class="demo-cell-title">Education Level</div>
+            <div class="stat-grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+              <div class="stat-card">
+                <span class="stat-num">122</span>
+                <span class="stat-label">Undergraduate</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num">12</span>
+                <span class="stat-label">Master's</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num">6</span>
+                <span class="stat-label">Doctoral</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-num">17</span>
+                <span class="stat-label">Already working</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="data-note">Survey distributed via WeChat and Xiaohongshu; Total valid responses: 159; Respondents were primarily undergraduates between the ages of 21 and 23.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+     SECTION 4 — CHALLENGES OF STUDYING ABROAD
+     ============================================================ -->
+
+  <div class="text-col animate-in">
+    <p>Among respondents studying outside mainland China, more than 60 per cent reported experiencing significant or extreme academic pressure. </p>
+    <p>When asked about the greatest challenges of studying abroad, the phrases cited most frequently were: “insufficient English and academic writing ability”, “loneliness and psychological stress”, “differences in culture and teaching style”, and “high academic demands and heavy workload”.</p>
+  </div>
+
+  <!-- CHART: Challenges Bar -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>The Biggest Challenges of Studying Abroad</h3>
+        <p>% of respondents who selected each option</p>
+      </div>
+      <div class="infographic-body">
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">English / Academic writing</div>
+            <div class="bar-track"><div class="bar-fill highlight" data-width="68.1"></div></div>
+            <div class="bar-pct">68.1%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Loneliness / Psychological stress</div>
+            <div class="bar-track"><div class="bar-fill" data-width="43.1"></div></div>
+            <div class="bar-pct">43.1%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Culture / Teaching differences</div>
+            <div class="bar-track"><div class="bar-fill" data-width="41.7"></div></div>
+            <div class="bar-pct">41.7%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">High academic demands</div>
+            <div class="bar-track"><div class="bar-fill" data-width="38.9"></div></div>
+            <div class="bar-pct">38.9%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Time management difficulties</div>
+            <div class="bar-track"><div class="bar-fill" data-width="31.9"></div></div>
+            <div class="bar-pct">31.9%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Financial pressure</div>
+            <div class="bar-track"><div class="bar-fill" data-width="31.9"></div></div>
+            <div class="bar-pct">31.9%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Other</div>
+            <div class="bar-track"><div class="bar-fill" data-width="2.8"></div></div>
+            <div class="bar-pct">2.8%</div>
+          </div>
+        </div>
+        <p class="data-note">Valid respondents: 72 (overseas students only). Multiple responses allowed. Frequency shown as percentage of respondents.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Among those with overseas study experience, more than 60 per cent felt there was a conflict between the test-oriented thinking instilled on the mainland and the critical thinking required by foreign universities. Only two respondents said there was “no conflict at all”.</p>
+  </div>
+
+  <!-- CHART: Conflict Exam vs Critical Thinking (Donut) -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>Conflict Between Exam-Oriented Mindset &amp; Critical Thinking</h3>
+        <p>Do you feel that the mainland high-school exam mentality conflicts with overseas critical thinking requirements? </p>
+      </div>
+      <div class="infographic-body">
+        <div class="donut-wrap">
+          <svg viewBox="0 0 200 200" width="200" height="200" style="flex-shrink:0;" id="donutChart">
+            <!-- Donut slices drawn via JS -->
+            <circle cx="100" cy="100" r="68" fill="none" stroke="var(--haze-100)" stroke-width="28"/>
+            <!-- Slices: None at all 2.78%, Not obvious 13.89%, Average 20.83%, Yes slight 43.06%, Yes very 19.44% -->
+          </svg>
+          <div class="donut-legend">
+            <div class="legend-item">
+              <div class="legend-dot" style="background:#213650;"></div>
+              <span>Yes, very visible</span>
+              <span class="legend-pct">19.4%</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:#3f6180;"></div>
+              <span>Yes, slightly visible</span>
+              <span class="legend-pct">43.1%</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:#7d9ab5;"></div>
+              <span>Average / Neutral</span>
+              <span class="legend-pct">20.8%</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:#b8ccd9;"></div>
+              <span>Not obvious</span>
+              <span class="legend-pct">13.9%</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:#e4ebf2;"></div>
+              <span>None at all</span>
+              <span class="legend-pct">2.8%</span>
+            </div>
+            <div style="margin-top:12px; padding:10px 12px; background:var(--haze-50); border:1px solid var(--haze-200);">
+              <div style="font-size:0.7rem; color:var(--text-muted); font-family:var(--font-sans); margin-bottom:2px;">Combined "Yes" responses</div>
+              <div style="font-family:var(--font-serif); font-size:1.5rem; font-weight:700; color:var(--haze-700);">62.5%</div>
+            </div>
+          </div>
+        </div>
+        <p class="data-note">Only respondents with overseas study experience answered this question (n=72).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Different languages, different academic systems, and different cultures force newly arrived students to adapt to an entirely new way of thinking—while absorbing the gap between expectation and reality, along with the anxiety that comes with it. And these feelings of displacement have become the fertile ground on which the ghostwriting market takes root and grows.</p>
+    <p>In the reporter's survey, 98.1 per cent of the 159 respondents said they had “heard of” or “seen” ghostwriting and essay mill services. Only three respondents selected the “never heard of” option. </p>
+    <p>The proportion of overseas students who “frequently see” related advertisements was also higher than among students studying within mainland China.</p>
+    <p>Overall, everyday social media platforms such as Xiaohongshu and WeChat were mentioned most frequently as the main channels through which ghostwriting advertisements and related information are circulated. </p>
+    <p>Moreover, the penetration of these advertisements is not confined to online social media but extends into public areas. One mainland respondent noted in the open-ended section of the questionnaire that they had seen ghostwriting flyers posted “on the bathroom walls of academic buildings”.</p>
+    <p>Among mainland-enrolled respondents, Xiaohongshu was cited most often as the platform on which they had encountered such information; among overseas respondents, WeChat edged slightly ahead.</p>
+  </div>
+
+
+
+  <!-- ============================================================
+     SECTION 5 — AWARENESS + PLATFORM
+     ============================================================ -->
+
+  
+
+  <!-- CHART: Platform frequency — comparative -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>Percentage of People Exposed to Ghostwriting Information on Different Platforms (%)</h3>
+        <p>Students studying in mainland China vs. overseas universities</p>
+      </div>
+      <div class="infographic-body">
+        <div class="chart-legend" style="margin-bottom:20px;">
+          <div class="chart-legend-item">
+            <div class="chart-legend-swatch" style="background:var(--haze-700);"></div>
+            <span>Students studying in mainland China (n=100)</span>
+          </div>
+          <div class="chart-legend-item">
+            <div class="chart-legend-swatch" style="background:var(--haze-400);"></div>
+            <span>Students studying overseas (n=59)</span>
+          </div>
+        </div>
+
+        <div class="platform-grid">
+          <!-- Header row -->
+          <div class="platform-row" style="font-size:0.7rem; color:var(--text-light); font-weight:500; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">
+            <span>Platform</span><span>Mainland (%)</span><span>Overseas (%)</span>
+          </div>
+
+          <div class="platform-row">
+            <div class="platform-name">WeChat</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:86%; transition:width 1.2s;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:92%; transition:width 1.2s;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Xiaohongshu</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:65%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:78%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Zhihu</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:45%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:55%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">TikTok</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:3%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:48%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Instagram</div>
+            <div class="platform-track" style="position:relative;"><div class="platform-fill-mainland" style="width:0%;"></div><span style="font-size:0.68rem; color:var(--text-light); position:absolute; left:4px; top:1px;">none</span></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:38%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Weibo</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:32%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:6%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Douban</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:4%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:4%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Reddit</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:8%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:9%;"></div></div>
+          </div>
+          <div class="platform-row">
+            <div class="platform-name">Twitter / X</div>
+            <div class="platform-track"><div class="platform-fill-mainland" style="width:8%;"></div></div>
+            <div class="platform-track"><div class="platform-fill-overseas" style="width:28%;"></div></div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; padding:12px 14px; background:var(--haze-50); border-left:2px solid var(--accent-blue); font-size:0.82rem; color:var(--text-secondary);">
+          <strong style="color:var(--haze-700);">Instagram gap:</strong> Instagram is blocked on the Chinese mainland. Nearly 40% of overseas respondents encountered ghostwriting ads there — while not a single mainland student did.
+        </div>
+
+        <p class="data-note">Illustrative sample data shown for comparative analysis based on 159 respondents total. Bars show approximate % of each group who selected the platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Many vendors use WeChat—China’s largest social media platform by user base—to push their “services” to a wider pool of potential clients.  Constrained by content moderation on domestic platforms, many ghostwriting vendors disguise themselves as students to infiltrate WeChat groups for overseas Chinese students, while others cloak themselves in the veneer of “legitimate business”, presenting as services that “assist with academic journal publication”, in order to solicit ghostwriting commissions.</p>
+    <p>The reporter found on an online search that some ghostwriting agency operators infiltrated in WeChat groups composed primarily of mainland students, waiting for the right moment to add individuals as WeChat contacts under the guise of being fellow students, and then using private messages and Moments posts to pitch their services.</p>
+    <p>The survey also found that Instagram is an important social media platform through which overseas student respondents encounter ghostwriting agencies' promotional content. Nearly 40 per cent of respondents reported seeing related information or promotional advertisements on the platform. Among mainland student respondents, not a single person reported encountering such content on Instagram.</p>
+    <p>Instagram is not accessible on the Chinese mainland but it could be overcome by climbing the firewall. It is a platform many overseas students use daily. The operators of ghostwriting agencies are clearly aware of this and have adjusted their placement strategy accordingly.</p>
+    <p>Kira Zhong, 19, a student at Emerson College in the United States, has received as many as seven Instagram friend requests in a single week from ghostwriting accounts. Nearly all of the accounts operated in Chinese and explicitly identified themselves as providing ghostwriting services.</p>
+
+    <p>She believes this is connected to Instagram's recommendation algorithm: it identified her as a "Chinese overseas student" and pushed her account precisely toward these agencies.</p>
+    <p>From the perspective of a service provider, L said that while platforms like Xiaohongshu are good for drawing in traffic, actual transactions are rare there. A large volume of business takes place on Goofish, the mainland secondhand trading platform. </p>
+    <p>“From what I understand, the people who come through Goofish have a much higher willingness to spend,” he said, “Clients who actually pay me come overwhelmingly from Goofish rather than Xiaohongshu.”</p>
+    <p>Unlike other open platforms on the mainland, Goofish's monitoring of ghostwriting content is considerably more lax. </p>
+    <p>The reporter searched terms related to ghostwriting on Goofish as of April 2026: only the phrase “论文代写” (“academic paper ghostwriting”) is blocked by the platform when entered into the search bar. Searching for “论文” (“paper”), “代写” (“ghostwriting”), or even “留学生essay” (“international student essay”) yields vendors and listings offering precisely such services.</p>
+    <p></p>
+    <div class="image-block wide" style="margin:0 auto 48px;">
+      <figure>
+        <img src="goofish_search.png" alt="Description" style="width:100%; display:block;">
+        <figcaption>
+          <span class="image-caption-text">Screen capture of Goofish search results.</span>
+          <span class="image-credit">Photo: ZHANG Yilin</span>
+        </figcaption>
+      </figure>
+    </div>
+    <p>After entering the keyword “留学生essay” in the search bar on Goofish’s web version, the reporter found that the first results page displayed 30 links to vendors, arranged in six rows with five listings per row.</p>
+    <p>The results currently span around 50 pages. Based on a rough estimate of 30 listings per page, this suggests that on Goofish alone there are approximately 1,500 vendors or service listings associated with the keyword. </p>
+    <p>This, to some extent, reflects the scale and activity of the market.</p>
+    <p></p>
+    <div class="image-block wide" style="margin:0 auto 48px;">
+      <figure>
+        <img src="goofish_result.png" alt="Description" style="width:100%; display:block;">
+        <figcaption>
+          <span class="image-caption-text">Screen capture of Goofish search results.</span>
+          <span class="image-credit">Photo: ZHANG Yilin</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p>On the Goofish platform, the listed prices for products appearing in relevant searches range mostly from 5 to 100 yuan, with the highest visible price at 220 yuan. </p>
+    <p>However, these are not real prices. Actual transaction amounts are negotiated privately and are set flexibly according to word count, subject area, quality requirements, and deadline, according to Peiyu, a ghostwriter who is currently operating a ghostwriting studio targeting mainland students studying overseas.</p>
+    <p>The reporter also asked survey respondents about their understanding of ghostwriting prices. One respondent answered that pricing “varies widely depending on the level of the paper — anywhere from 2,000 to 50,000 yuan”.</p>
+    <p>Among survey respondents who had used ghostwriting services, nearly 40 per cent said a 2,000-to-3,000-word paper cost approximately 500 to 1,000 yuan. </p>
+    <p>More than 30 per cent said the price was approximately 1,000 to 2,000 yuan.</p> 
+    <p>Overseas students who had used ghostwriting reported higher average prices than mainland students who had done so.</p>
+    <!-- PRICE KNOWLEDGE CHART -->
+    <div class="text-col animate-in">
+      <div class="infographic-wrap text-width">
+        <div class="infographic-header">
+          <h3>What Students Know About Prices</h3>
+          <p>For a 2,000–3,000 word paper (writing time sufficient) — 159 respondents</p>
+        </div>
+        <div class="infographic-body">
+          <div class="bar-chart">
+            <div class="bar-row" style="grid-template-columns:160px 1fr 52px;">
+              <div class="bar-label">Don't know</div>
+              <div class="bar-track"><div class="bar-fill" data-width="74"></div></div>
+              <div class="bar-pct">74</div>
+            </div>
+            <div class="bar-row" style="grid-template-columns:160px 1fr 52px;">
+              <div class="bar-label">Under ¥500</div>
+              <div class="bar-track"><div class="bar-fill" data-width="13"></div></div>
+              <div class="bar-pct">13</div>
+            </div>
+            <div class="bar-row" style="grid-template-columns:160px 1fr 52px;">
+              <div class="bar-label">¥500–1,000</div>
+              <div class="bar-track"><div class="bar-fill highlight" data-width="36"></div></div>
+              <div class="bar-pct">36</div>
+            </div>
+            <div class="bar-row" style="grid-template-columns:160px 1fr 52px;">
+              <div class="bar-label">¥1,000–2,000</div>
+              <div class="bar-track"><div class="bar-fill" data-width="17"></div></div>
+              <div class="bar-pct">17</div>
+            </div>
+            <div class="bar-row" style="grid-template-columns:160px 1fr 52px;">
+              <div class="bar-label">¥2,000–5,000</div>
+              <div class="bar-track"><div class="bar-fill" data-width="13"></div></div>
+              <div class="bar-pct">13</div>
+            </div>
+            <div class="bar-row" style="grid-template-columns:160px 1fr 52px;">
+              <div class="bar-label">Over ¥5,000</div>
+              <div class="bar-track"><div class="bar-fill" data-width="4"></div></div>
+              <div class="bar-pct">4</div>
+            </div>
+          </div>
+          <p class="data-note">Bars show count of respondents. One respondent noted prices range "from 2,000 to 50,000 yuan depending on the level". Overseas students who had used ghostwriting reported higher average prices than mainland students.</p>
+        </div>
+      </div>
+    </div>
+    <p>"Ghostwriting in Chinese is half the price of overseas English-language ghostwriting," a respondent studying in Hong Kong wrote in the survey's open-ended section. </p>
+    <p>The overseas student ghostwriting business is a golden egg, and many vendors have rushed toward it.</p>
+  
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 6 — WHO IS RUNNING THIS BUSINESS
+     ============================================================ -->
+<section class="section">
+  <div class="section-header animate-in">
+    <div class="section-label">Behind the Scene</div>
+    <h2 class="section-title">Who Is Running This Business</h2>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Posing as a Hong Kong–based student, the reporter went undercover and contacted two ghostwriting agencies that target students in Hong Kong, Macau, and overseas. </p>
+    <p>Both were first discovered on Xiaohongshu, but due to the platform’s restrictions and content review of ghostwriting-related posts, all detailed discussions of services and pricing were conducted on WeChat.</p>
+  </div>
+
+  <!-- Agency Profile Cards -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>Two Agencies, Undercover</h3>
+        <p>Reporter contacted both agencies posing as a Hong Kong-based student originally from the mainland China.</p>
+      </div>
+      <div class="agency-cards">
+        <div class="agency-card">
+          <div class="agency-card-badge">Agency 1 — "Reliable Senior Qianqian"</div>
+          <h4>Peiyu's Ghostwriting Studio</h4>
+          <p>A small personal team — described as "all seniors and graduates with master's or doctoral degrees from prestigious institutions", with local teachers in Hong Kong on offer. Active on Xiaohongshu, WeChat, and Goofish.</p>
+          <p style="margin-top:12px;"><strong style="color:var(--haze-700);">Specialises in:</strong> Essay and report writing, presentation scripts, PowerPoint slides.</p>
+          <div class="price-tag">
+            <strong>¥400–700 per 1,000 words</strong>
+            Non-STEM: ¥400–600 / 1,000w &nbsp;|&nbsp; STEM: ¥500–700 / 1,000w
+          </div>
+          <div class="price-tag" style="margin-top:8px;">
+            <strong>¥20–70 per minute of presentation</strong>
+            ~100 words of content per minute of speaking time
+          </div>
+        </div>
+        <div class="agency-card">
+          <div class="agency-card-badge">Agency 2 — "Lumi Education"</div>
+          <h4>Lumi Education</h4>
+          <p>A more "formal" operation. Claims to cover 1,278 universities worldwide, with more than 9,071 instructors holding master's or doctoral degrees from QS Top 100 institutions. Markets itself as offering "course tutoring and essay polishing".</p>
+          <p style="margin-top:12px;">Reporter was assigned to "Teacher Xingxing", introduced as "a specialist of Hong Kong Baptist University" — who could name courses by code alone.</p>
+          <div class="price-tag">
+            <strong>¥199 trial / ¥998 per hour</strong>
+            Package rate: ~¥500–600/hr. A standard 2,000-word assignment: ¥1,000–1,800
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>The first agency is a ghostwriting studio that operates on Xiaohongshu under the name “Reliable Senior Qianqian”. After contacting the account via direct message, the reporter added the person on WeChat, where the contact’s display name appeared as “Peiyu”. </p>
+    <p>Peiyu’s studio currently specialises in ghostwriting services for overseas students, including essay and report writing, as well as the drafting of presentation scripts and the creation of PowerPoint slides. The studio maintains social media accounts on Xiaohongshu, WeChat and Goofish.</p>
+    <p>She described her team as “a small personal team — all seniors and graduates with master's or doctoral degrees from prestigious institutions, and we can arrange for local teachers in Hong Kong”.</p>
+    <p>Her written-text services are billed per thousand words: 400 to 600 yuan per thousand words for non-STEM subjects - Science, Technology, Engineering, and Mathematics- and 500 to 700 yuan per thousand words for STEM fields, which involve data analysis. </p>
+    <p>Presentations are priced by speaking duration — roughly 100 words of content per minute — at rates of 20 to 70 yuan per minute.</p>
+    <p>The exact price of both types of service fluctuates depending on the target grade and quality requirements.</p>
+    <p>A review of Peiyu’s WeChat Moments suggests that she initially focused on ghostwriting services for mainland Chinese university students. The higher per-order prices and faster payment turnaround in the overseas student market appear to have prompted her to shift toward providing ghostwriting for students studying abroad.</p>
+    <p>“International students pay so fast,” she wrote in a Moments post in January 2025. She also noted that when her studio’s writers took on domestic orders, they would be exhausted after months of work, whereas after switching to the international-student segment, they could make more than 10,000 yuan in a single week.</p>
+    <p>The reporter reviewed Peiyu’s entire WeChat Moments feed from 2022 to the present, tracing in detail her gradual transformation from an accounting undergraduate student to a professional ghostwriter.</p>
+    <p>In multiple posts, Peiyu described her ghostwriting services as a form of “entrepreneurship”. But her “entrepreneurial” journey did not initially target the essay-writing business. Instead, it moved through several stages—paid knowledge-sharing communities, training in self‑media writing, and private-traffic operations—before ultimately pivoting toward ghostwriting.</p>
+    <p>Within the ecosystem of the knowledge economy and private-domain entrepreneurship, she combined her writing skills, community resources and AI tools to build what became a scalable ghostwriting business.</p>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     SECTION 7 — PEIYU TIMELINE (Hand-drawn)
+     ============================================================ -->
+<section class="section handdrawn-section">
+  <div class="wide-col">
+    <div class="handdrawn-header animate-in">
+      <div class="sketch-label">— Reporter’s Note: one ghostwriter's journey —</div>
+      <h3>From Accounting Student to Ghostwriting Studio Owner</h3>
+    </div>
+
+    <!-- HAND-DRAWN SVG TIMELINE -->
+    <svg id="sketchTimeline" viewBox="0 0 900 620" width="100%" style="display:block; max-height:700px; overflow:visible;" class="animate-in">
+      <!-- Background paper texture suggestion -->
+      <rect x="0" y="0" width="900" height="620" fill="#f4f6f9" rx="4"/>
+      
+      <!-- Title area -->
+      <text x="30" y="37" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#2f4d68">Peiyu's Path into the Shadow Industry</text>
+      <text x="30" y="62" font-family="Caveat, cursive" font-size="24" fill="#7d9ab5">A reconstruction from her public WeChat Moments (2022–2025)</text>
+      
+      <!-- Rough horizontal timeline spine with hand-drawn effect -->
+      <path d="M 60 130 Q 200 128 350 131 Q 500 129 650 132 Q 780 130 850 131" 
+            stroke="#3f6180" stroke-width="2.5" fill="none" 
+            stroke-linecap="round" stroke-dasharray="1,0"/>
+      
+      <!-- Arrow head at end -->
+      <path d="M 845 127 L 858 131 L 845 135" fill="none" stroke="#3f6180" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- NODE 1: 2022 — Undergraduate -->
+      <circle cx="90" cy="131" r="7" fill="#213650" stroke="#f4f6f9" stroke-width="2"/>
+      
+      <!-- Connector line going down -->
+      <path d="M 90 138 Q 88 175 90 200" stroke="#7d9ab5" stroke-width="1.2" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
+      
+      <!-- Box 1 -->
+      <rect x="20" y="200" width="158" height="88" rx="4" fill="#dce8f0" stroke="#a8bace" stroke-width="1.2" stroke-linejoin="round"/>
+      <!-- rough border effect -->
+      <path d="M 22 202 Q 100 199 176 202 Q 178 240 176 286 Q 100 288 22 286 Q 20 248 22 202" fill="none" stroke="#b8ccd9" stroke-width="0.5"/>
+      
+      <text x="99" y="222" font-family="Caveat, cursive" font-size="25" font-weight="700" fill="#2f4d68" text-anchor="middle">2022</text>
+      <text x="99" y="240" font-family="Caveat, cursive" font-size="18" fill="#3d5166" text-anchor="middle">Accounting undergrad,</text>
+      <text x="99" y="260" font-family="Caveat, cursive" font-size="18" fill="#3d5166" text-anchor="middle">posting aphorisms</text>
+      <text x="99" y="280" font-family="Caveat, cursive" font-size="18" fill="#5a7d9a" text-anchor="middle">Sharing life quotes</text>
+
+      <!-- Sketch figure — student -->
+      <circle cx="99" cy="292" r="0"/> <!-- placeholder -->
+      
+      <!-- NODE 2: Late 2023 -->
+      <circle cx="270" cy="131" r="7" fill="#2f4d68" stroke="#f4f6f9" stroke-width="2"/>
+      <path d="M 270 138 Q 268 165 270 190" stroke="#7d9ab5" stroke-width="1.2" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
+      
+      <rect x="196" y="190" width="158" height="105" rx="4" fill="#dce8f0" stroke="#a8bace" stroke-width="1.2"/>
+      <path d="M 198 192 Q 275 190 352 192 Q 354 238 352 293 Q 275 295 198 293 Q 196 248 198 192" fill="none" stroke="#b8ccd9" stroke-width="0.5"/>
+      
+      <text x="275" y="210" font-family="Caveat, cursive" font-size="23" font-weight="700" fill="#2f4d68" text-anchor="middle">Late 2023</text>
+      <text x="275" y="229" font-family="Caveat, cursive" font-size="16" fill="#3d5166" text-anchor="middle">Discovers "personal IP"</text>
+      <text x="275" y="246" font-family="Caveat, cursive" font-size="16" fill="#3d5166" text-anchor="middle">&amp; monetization</text>
+      <text x="275" y="264" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">Companion group: ¥29.9/mo</text>
+      <text x="275" y="281" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">CV editing: ¥9.9/session</text>
+
+      <!-- NODE 3: April 2024 — TURNING POINT -->
+      <circle cx="460" cy="131" r="9" fill="#152438" stroke="#7d9ab5" stroke-width="2.5"/>
+      <path d="M 460 140 Q 458 165 460 185" stroke="#3f6180" stroke-width="1.5" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
+      
+      <!-- Star burst around turning point node -->
+      <path d="M 460 118 L 462 124 L 468 122 L 464 127 L 470 131 L 464 131 L 465 137" fill="none" stroke="#6b8fa8" stroke-width="1" opacity="0.6"/>
+      <path d="M 450 118 L 452 124 L 448 122 L 452 127 L 446 131 L 452 131 L 451 137" fill="none" stroke="#6b8fa8" stroke-width="1" opacity="0.6"/>
+      
+      <!-- Highlight box for turning point -->
+      <rect x="374" y="185" width="178" height="135" rx="4" fill="#cfd8e6" stroke="#7d9ab5" stroke-width="1.8"/>
+      <path d="M 376 187 Q 463 184 550 187 Q 552 250 550 318 Q 463 320 376 318 Q 374 255 376 187" fill="none" stroke="#94aab8" stroke-width="0.8"/>
+      
+      <text x="463" y="207" font-family="Caveat, cursive" font-size="15" font-weight="800" fill="#6b8fa8" text-anchor="middle">⚡ TURNING POINT</text>
+      <text x="463" y="230" font-family="Caveat, cursive" font-size="22" font-weight="700" fill="#2f4d68" text-anchor="middle">April 2024</text>
+      <text x="463" y="248" font-family="Caveat, cursive" font-size="18" fill="#3d5166" text-anchor="middle">Joins paid community,</text>
+      <text x="463" y="265" font-family="Caveat, cursive" font-size="18" fill="#3d5166" text-anchor="middle">discovers ghostwriting</text>
+      <text x="463" y="283" font-family="Caveat, cursive" font-size="18" fill="#5a7d9a" text-anchor="middle">"Spent whole day on</text>
+      <text x="463" y="300" font-family="Caveat, cursive" font-size="18" fill="#5a7d9a" text-anchor="middle">ghostwriting... so slow"</text>
+
+      <!-- NODE 4: Dec 2024 -->
+      <circle cx="660" cy="131" r="7" fill="#2f4d68" stroke="#f4f6f9" stroke-width="2"/>
+      <path d="M 660 138 Q 658 165 660 185" stroke="#7d9ab5" stroke-width="1.2" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
+      
+      <rect x="570" y="185" width="185" height="130" rx="4" fill="#dce8f0" stroke="#a8bace" stroke-width="1.2"/>
+      <path d="M 572 187 Q 662 184 753 187 Q 755 248 753 313 Q 662 315 572 313 Q 570 252 572 187" fill="none" stroke="#b8ccd9" stroke-width="0.5"/>
+      
+      <text x="662" y="205" font-family="Caveat, cursive" font-size="23" font-weight="700" fill="#2f4d68" text-anchor="middle">Dec 2024</text>
+      <text x="662" y="224" font-family="Caveat, cursive" font-size="16" fill="#3d5166" text-anchor="middle">Pivots to overseas</text>
+      <text x="662" y="241" font-family="Caveat, cursive" font-size="16" fill="#3d5166" text-anchor="middle">student market</text>
+      <text x="662" y="260" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">"Int'l students pay fast"</text>
+      <text x="662" y="277" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">¥1,750 for 3,000-word essay</text>
+      <text x="662" y="296" font-family="Caveat, cursive" font-size="16" fill="#3f6180" text-anchor="middle">Begins recruiting writers</text>
+      <text x="662" y="313" font-family="Caveat, cursive" font-size="16" fill="#3f6180" text-anchor="middle">¥499 training fee</text>
+
+      <!-- NODE 5: July 2025 -->
+      <circle cx="840" cy="131" r="8" fill="#152438" stroke="#5a7d9a" stroke-width="2"/>
+      <path d="M 840 139 Q 838 165 840 185" stroke="#3f6180" stroke-width="1.5" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
+      
+      <rect x="756" y="185" width="138" height="140" rx="4" fill="#cfd8e6" stroke="#7d9ab5" stroke-width="1.5"/>
+      <path d="M 758 187 Q 825 184 892 187 Q 894 250 892 323 Q 825 325 758 323 Q 756 260 758 187" fill="none" stroke="#94aab8" stroke-width="0.7"/>
+      
+      <text x="825" y="207" font-family="Caveat, cursive" font-size="23" font-weight="700" fill="#2f4d68" text-anchor="middle">July 2025</text>
+      <text x="825" y="226" font-family="Caveat, cursive" font-size="16" fill="#3d5166" text-anchor="middle">Relocates to</text>
+      <text x="825" y="243" font-family="Caveat, cursive" font-size="16" fill="#3d5166" text-anchor="middle">Shenzhen</text>
+      <text x="825" y="262" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">Studio "runs itself"</text>
+      <text x="825" y="281" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">Expands to: appeals,</text>
+      <text x="825" y="298" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">job guarantees,</text>
+      <text x="825" y="315" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">IELTS, remote exams</text>
+
+      <!-- Year labels above nodes -->
+      <text x="90" y="115" font-family="Caveat, cursive" font-size="20" fill="#94aab8" text-anchor="middle">2022</text>
+      <text x="270" y="115" font-family="Caveat, cursive" font-size="20" fill="#94aab8" text-anchor="middle">Late 2023</text>
+      <text x="460" y="112" font-family="Caveat, cursive" font-size="20" fill="#3f6180" font-weight="700" text-anchor="middle">Apr 2024</text>
+      <text x="660" y="115" font-family="Caveat, cursive" font-size="20" fill="#94aab8" text-anchor="middle">Dec 2024</text>
+      <text x="840" y="115" font-family="Caveat, cursive" font-size="20" fill="#3f6180" font-weight="700" text-anchor="middle">2025 →</text>
+      
+      <!-- Bottom annotation box -->
+      <rect x="30" y="360" width="840" height="58" rx="4" fill="#e8ecf2" stroke="#cfd8e6" stroke-width="1"/>
+      <text x="450" y="381" font-family="Caveat, cursive" font-size="17" fill="#5a7d9a" text-anchor="middle">From one person to a team; She has begun to refocus her target market on international students from the Chinese mainland.</text>
+      <text x="450" y="403" font-family="Caveat, cursive" font-size="17" fill="#3d5166" text-anchor="middle">"International students pay so fast — it's great. Seven-page PPT, ¥750. 3,000-word English essay, ¥1,750." — Peiyu, Jan 2025</text>
+
+      <!-- Key income callout arrow -->
+      <path d="M 720 295 Q 740 340 660 355" fill="none" stroke="#6b8fa8" stroke-width="1.2" stroke-dasharray="3,2"/>
+      <circle cx="660" cy="356" r="2.5" fill="#6b8fa8"/>
+      
+      <!-- Handwritten note in corner -->
+      <rect x="30" y="430" width="200" height="60" rx="3" fill="white" stroke="#cfd8e6" stroke-width="1" transform="rotate(-1.5, 130, 460)"/>
+      <text x="130" y="452" font-family="Caveat, cursive" font-size="15" fill="#637b8f" text-anchor="middle" transform="rotate(-1.5, 130, 460)">Ghostwriting was the entry</text>
+      <text x="130" y="468" font-family="Caveat, cursive" font-size="15" fill="#637b8f" text-anchor="middle" transform="rotate(-1.5, 130, 460)">point — the first hook to</text>
+      <text x="130" y="484" font-family="Caveat, cursive" font-size="15" fill="#637b8f" text-anchor="middle" transform="rotate(-1.5, 130, 460)">lock in overseas clients.</text>
+      
+      <!-- Pin circle on note -->
+      <circle cx="130" cy="430" r="5" fill="#7d9ab5" transform="rotate(-1.5, 130, 460)"/>
+    </svg>
+  </div>
+</section>
+
+<section class="section">
+  <div class="text-col animate-in">
+    <p>Vendors like Peiyu, who grew from individual writers into operators, represent only one part of the supply side of this market.</p>
+    <p>Another part consists of larger operations that present themselves in a more “formal” way, such as a tutoring agency that the reporter contacted on Xiaohongshu, which operates under the name “Lumi Education”.</p>
+    <p>According to the Lumi Education website, the agency covers 1,278 universities worldwide, specialises in providing overseas students with course tutoring and essay polishing services, and has more than 9,071 instructors on its roster. </p>
+    <p>Its customer service representative said that all of these teachers hold master's or doctoral degrees from overseas QS Top 100 institutions, with verifiable backgrounds, and that instructors are matched based on the student's institution and major, with priority given to matching tutors from the same school and same program.</p>
+    <p>The reporter consulted the agency posing as a student at Hong Kong Baptist University and was assigned to a person called “Teacher Xingxing”, who introduced herself as “a specialist of Hong Kong Baptist University”. </p>
+    <p>She is familiar with this university’s curriculum. In the conversation, the reporter provided only the course code; she was able to identify the course by name and describe its specific content.</p>
+  </div>
+  <style>
+    .chat-infographic-container {
+      max-width: 400px;
+      margin: 3rem auto 0.5rem auto;
+      border: 1px solid var(--haze-200);
+      border-radius: 16px;
+      background: var(--haze-50);
+      box-shadow: 0 12px 32px rgba(28, 43, 57, 0.08);
+      overflow: hidden;
+      font-family: var(--font-sans, 'IBM Plex Sans', sans-serif);
+    }
+    
+    .chat-header {
+      background: #ffffff;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--haze-200);
+      font-weight: 600;
+      color: var(--haze-900);
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    .chat-window {
+      padding: 1.5rem;
+      height: 450px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      scroll-behavior: smooth;
+    }
+    
+    /* Custom Scrollbar to match SCMP sleek style */
+    .chat-window::-webkit-scrollbar {
+      width: 5px;
+    }
+    .chat-window::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .chat-window::-webkit-scrollbar-thumb {
+      background: var(--haze-300);
+      border-radius: 10px;
+    }
+    
+    .chat-msg {
+      max-width: 82%;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      position: relative;
+      /* Animation for smooth sequential loading */
+      animation: chatFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    
+    .chat-msg.right {
+      align-self: flex-end;
+      /* Using your theme's primary accent color */
+      background: var(--haze-500); 
+      color: #ffffff;
+      border-bottom-right-radius: 2px;
+    }
+    
+    .chat-msg.left {
+      align-self: flex-start;
+      background: #ffffff;
+      color: var(--haze-900);
+      border: 1px solid var(--haze-200);
+      border-bottom-left-radius: 2px;
+      box-shadow: 0 2px 8px rgba(28, 43, 57, 0.03);
+    }
+    
+    .chat-timestamp {
+      font-size: 0.75rem;
+      color: var(--haze-400);
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+    
+    .chat-author {
+      font-size: 0.75rem;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: var(--haze-400);
+    }
+    
+    .chat-caption {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--haze-400);
+      text-align: center;
+      margin-top: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Staggered animation delays for the typing effect */
+    .chat-msg:nth-child(2) { animation-delay: 0.2s; }
+    .chat-msg:nth-child(3) { animation-delay: 1.0s; }
+    .chat-msg:nth-child(4) { animation-delay: 1.8s; }
+    .chat-msg:nth-child(5) { animation-delay: 2.8s; }
+    .chat-msg:nth-child(6) { animation-delay: 3.6s; }
+
+    @keyframes chatFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <div class="chat-infographic-container">
+    <div class="chat-header">
+      Lumi Education - Teacher Xingxing
+    </div>
+    <div class="chat-window">
+
+      <div class="chat-msg right">
+        Hi, I need help writing an essay for course code JOUR3157. Can you guys do this?
+      </div>
+
+      <div class="chat-msg left">
+        <div class="chat-author">Teacher Xingxing</div>
+        JOUR3157? That's Law and Ethics for Journalists, right?
+      </div>
+
+      <div class="chat-msg right">
+        Yes.
+      </div>
+
+      <div class="chat-msg left">
+        <div class="chat-author">Teacher Xingxing</div>
+        Got it! We’ve helped with this course before—it’s a required course for the journalism major.
+      </div>
+
+      <div class="chat-msg left">
+        <div class="chat-author">Teacher Xingxing</div>
+        It focuses on media law, journalistic ethics, and practical case analysis. I’d say the difficulty is medium to moderately high.
+      </div>
+
+      <div class="chat-msg right">
+        Yeah, I’m just a bit curious—do you have access to internal course registration info? You know the details so well.
+      </div>
+
+      <div class="chat-msg left">
+        <div class="chat-author">Teacher Xingxing</div>
+        I’ve checked feedback from students we’ve helped before. The main difficulty is that there’s a lot to memorize—laws, ethical standards, and cases—and you also need to do case analysis, applying legal or ethical principles to real journalism situations.
+      </div>
+
+      <div class="chat-msg left">
+        <div class="chat-author">Teacher Xingxing</div>
+        Because we’ve tutored this course before—and actually, we’ve covered many courses offered by the Hong Kong Baptist University. Our focus is mainly on Hong Kong–based programs.
+      </div>
+
+      <div class="chat-msg left">
+        <div class="chat-author">Teacher Xingxing</div>
+        Besides Hong Kong Baptist University, we’ve also tutored students from the University of Hong Kong, City University of Hong Kong, Hong Kong Polytechnic University, Hong Kong Education University, and Hong Kong University of Science and Technology, and others. Many students have come to us for tutoring.
+      </div>
+    </div>
+  </div>
+  <div class="chat-caption">
+    Source: WeChat conversation between the reporter and Teacher Xingxing from Lumi Education (Translated from Chinese).
+  </div>
+
+  <div class="text-col animate-in">
+    <p>In terms of pricing, Xingxing said that a trial lesson costs 199 yuan, with subsequent lessons charged at 998 yuan per hour. If a client buys a package of five hours or more, the discounted hourly rate works out to roughly 500 to 600 yuan.</p>
+    <p>Based on an estimate that tutoring for a 2,000-word paper takes two to three hours, completing a standard course assignment would typically cost between 1,000 and 1,800 yuan.</p>
+    <p>L also described the existence of such agencies in the interview. “There’s a fairly mature industry called ‘full-process escorting’ that promises ‘high scores guaranteed’. Some students really do pay them to ‘run the whole course’ with them,” he said and paused, “But in the end, their grades still aren’t that good.”</p>
+    <p>“How would an off-campus agency know what the professor covered if they’ve never sat in on the class?” he went on, “And you actually trust the materials they give you?”</p>
+    <p>In conversations with the reporter, Xingxing stated that Lumi does not provide ghostwriting services; they only offer essay tutoring and editing.</p>
+    <p>L, however, said that many other agencies bundle study-abroad services such as course tutoring together with ghostwriting. </p>
+    <p>“It’s often tied to study-abroad consulting,” he said, “You come in through their tutoring services, and then, through these package deals, they can help you complete your assignments. Doesn’t that make it a complete chain?”</p>
+    <p>In his account, the chain can run from assistance with admissions applications to post-enrolment course tutoring and having papers written on a student’s behalf.</p>
+    <p>According to him, each link in this process can be packaged and sold as a paid service under labels such as “tutoring” or “academic coaching”.</p>
+    
+  </div>
+
+</section>
+
+<!-- ============================================================
+     SECTION 8 — WHY STUDENTS DO IT
+     ============================================================ -->
+<section class="section">
+  <div class="section-header animate-in">
+    <div class="section-label">Motivations</div>
+    <h2 class="section-title">They Know It's Wrong. So Why Do They Do It?</h2>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Most people are aware that paying for ghostwriting violates academic integrity.</p>
+    <p>In the survey, 77.7 per cent of respondents said that academic integrity was "important" or "very important”, and more than 60 per cent described the impact of ghostwriting on their own learning outcomes as “negative” or “very negative”.</p>
+  </div>
+
+  <!-- KEY STATS ROW -->
+  <div class="wide-col animate-in">
+    <div class="infographic-wrap wide">
+      <div class="infographic-header">
+        <h3>Key Survey Findings: Attitudes &amp; Behaviour</h3>
+        <p>159 respondents total</p>
+      </div>
+      <div class="infographic-body">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-num">98.1%</span>
+            <span class="stat-label">Have heard of or seen ghostwriting services</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">77.7%</span>
+            <span class="stat-label">Rate academic integrity as "important" or "very important"</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">14.5%</span>
+            <span class="stat-label">Have used paid ghostwriting at least once</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">23.3%</span>
+            <span class="stat-label">Considered it but did not use ghostwriting</span>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div class="demo-cell-title" style="margin-bottom:14px;">Impact of Ghostwriting on Learning Outcomes — How respondents assessed it (Headcount)</div>
+          <div class="likert-wrap">
+            <div class="likert-row">
+              <div class="likert-label">Completely negative</div>
+              <div class="likert-track"><div class="likert-fill" data-width="18.9" style="background:var(--haze-800);"></div></div>
+              <div class="likert-count">30</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Negative</div>
+              <div class="likert-track"><div class="likert-fill" data-width="40.9" style="background:var(--haze-600);"></div></div>
+              <div class="likert-count">65</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Neutral</div>
+              <div class="likert-track"><div class="likert-fill" data-width="23.9" style="background:var(--haze-400);"></div></div>
+              <div class="likert-count">38</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Positive</div>
+              <div class="likert-track"><div class="likert-fill" data-width="12.6" style="background:var(--haze-300);"></div></div>
+              <div class="likert-count">20</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Completely positive</div>
+              <div class="likert-track"><div class="likert-fill" data-width="3.8" style="background:var(--haze-200);"></div></div>
+              <div class="likert-count">6</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Worry about being caught -->
+        <div style="margin-top:24px;">
+          <div class="demo-cell-title" style="margin-bottom:14px;">Worry About Being Caught &amp; Punished (Headcount)</div>
+          <div class="likert-wrap">
+            <div class="likert-row">
+              <div class="likert-label">Very worried</div>
+              <div class="likert-track"><div class="likert-fill" data-width="39" style="background:var(--haze-800);"></div></div>
+              <div class="likert-count">62</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Somewhat worried</div>
+              <div class="likert-track"><div class="likert-fill" data-width="32.7" style="background:var(--haze-600);"></div></div>
+              <div class="likert-count">52</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Haven't thought about it</div>
+              <div class="likert-track"><div class="likert-fill" data-width="15.7" style="background:var(--haze-400);"></div></div>
+              <div class="likert-count">25</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Not very worried</div>
+              <div class="likert-track"><div class="likert-fill" data-width="10.1" style="background:var(--haze-300);"></div></div>
+              <div class="likert-count">16</div>
+            </div>
+            <div class="likert-row">
+              <div class="likert-label">Not worried at all</div>
+              <div class="likert-track"><div class="likert-fill" data-width="2.5" style="background:var(--haze-200);"></div></div>
+              <div class="likert-count">4</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="data-note">Data Source: The survey with 159 respondents.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>So why do so many people still choose to use ghostwriters? The reasons behind are complex and often structural.</p>
+    <p>L told the reporter that many of his classmates at his undergraduate university used ghostwriting services. He did not see it as particularly unusual.</p>
+    <p>“The school never taught us how to write,” he said, “Most people aren’t going into academia anyway. For them, writing that paper just doesn't seem necessary.”</p>
+    <p>However, Dr. Wang of Hebei University of Economics and Business did not share this view. “You can't really trust what students say,” she said. </p>
+    <p>According to her, the university where she teaches offers three courses related to writing: basic writing, academic writing, and thesis writing. Thesis supervisors also guide students on how to conduct research and build a structure. </p>
+    <p>“But they don't want to spend the time truly learning. The mentality of getting things done perfunctorily is quite strong. Hand in the assignment, the course is finished — they went through it, but it didn't sink in,” she added.</p>
+    <p>Wang earned her doctoral degree in the United States and has firsthand experience with both systems. In her view, behind this perfunctory attitude lies a deeper institutional inertia.</p>
+    <p>“In China, [the academic regulation] is not as strict as overseas,” she said, “When a student’s thesis can’t pass, sometimes the school leadership will approach the instructor and ask them to let the student through. Otherwise, the student won’t get a diploma, and it will hurt their job prospects. The students understand this, and they know the instructor will have to pass them sooner or later, so they don’t put real effort into the thesis.”</p>
+    <p>Once that lax exit collides with the rigid standards of overseas universities, the problems surface immediately.</p>
+    <p>Wang observed that for mainland students studying abroad, the first obstacle is often not the act of writing itself but the inability to understand what the assignment is actually asking. </p>
+    <p>“Back on the mainland, teachers sometimes give assignments in a sentence or two. But overseas assignment sheets are usually a full page, with detailed criteria and rubrics,” she said.</p>
+    <p>Mainland students aren't in the habit of reading things like that. They finish the paper only to discover it bears no relation to the requirements and their grade is extremely low,” Wang added.</p>
+    <p>She recalled a student she had once taught who went on to pursue further studies in the United Kingdom. On his first assignment, he received a C minus. </p>
+    <p>“He brought all his old bad habits from China with him. He didn’t know what they were actually looking for. He wrote the paper, but the grade just wasn’t there,” Wang commented.</p>
+    <p>But the friction for these students often extends beyond a mere struggle with academic adjustment. According to Liang, the educator with Baptist University, the drive for a “perfect” grade is a deeper psychological engine at play.</p>
+    <p>Compared with what she described as the “chill” attitude of Western students, Liang said students from mainland China tend to work harder and set higher expectations for themselves—whether out of a genuine love for learning or simply in pursuit of a higher GPA.</p>
+    <p>She attributed this to cultural and social pressures.</p>
+  </div>
+
+  <div class="pullquote text-col animate-in">
+    <blockquote>“They grow up surrounded by expectations. It’s the social environment they’re in that makes them more inclined, almost instinctively, to strive for strong, quantifiable performance on paper.”</blockquote>
+    <cite>Stella Liang Shuyu, course instructor from Hong Kong Baptist University</cite>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>There is also a segment of students who see ghostwriting as simply a tool — one that helps them allocate their time more efficiently toward their actual goals.</p>
+    <p>“If you're not going into academia, and you have money, just use it freely,” one respondent wrote in the open-ended section of the survey. </p>
+    <p>Another was more specific: “I think it depends on personal plans. If you're not aiming for an academic career, then you can genuinely save that time to do internships, to do things you actually want to do.”</p>
+    <p>L also acknowledged a similar line of thinking. He said that if he had decided not to pursue graduate school and had already secured a job, with only a final thesis standing in the way of making the position official, he “might indeed have turned to a ghostwriter”. “I’m just not good at this kind of work,” he said.</p>
+    <p>“But when it comes to ethics, it’s an act of dishonesty,” he added.</p>
+    <p></p>
+  </div>
+
+  <div class="image-block wide" style="margin:0 auto 48px;">
+   <figure>
+     <img src="image2.JPG" alt="Description" style="width:100%; display:block;">
+     <figcaption>
+       <span class="image-caption-text">A student is walking past rows of bookshelves in the library at Hong Kong Baptist University.</span>
+       <span class="image-credit">Photo: ZHANG Yilin</span>
+     </figcaption>
+   </figure>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Respondents studying at universities in mainland China generally said they would not report classmates who use ghostwriting services.</p>
+    <p>“Better to avoid trouble”, “It brings me no benefit”, and “It could affect relationships with classmates” were among the most common reasons given in the survey.</p>
+    <p>According to Elizabeth Zou, a 22-year-old student in Beijing, even if she knew about it, she would not file a report. </p>
+    <p>“You can’t find evidence, the reporting channels aren’t convenient, and it could hurt your relationships,” she said, “And besides, even if they didn’t put in the time, they did pay money—so in a sense, that’s also a kind of investment.”</p>
+    <p>Dr Wang the academic described the reluctance to intervene as a cultural phenomenon. “That’s how Chinese people are—better to avoid trouble; they won’t get involved,” she said. </p>
+    <p>“People abroad are different. They’ll think, ‘This is wrong, this is unjust, I have to step in.’ It’s a cultural difference,” she added.</p>
+    <p>She also observed that Chinese domestic university students generally have a low sensitivity to questions of academic ethics. In Wang’s view,  the existence of academic integrity rules and relatively clearer reporting mechanisms makes students in those environments considerably more attuned to the issue at overseas universities.</p>
+    <p>Kira, who attended international schools throughout her upbringing, is firmly opposed to ghostwriting. </p>
+    <p>“It's academic dishonesty. It's an internalised line I don't cross — not a constraint imposed by rules. What the school is evaluating is you, your own abilities as a student,” she said.</p>
+    <p>Most universities outside mainland China have comparable policies on ghostwriting and academic misconduct, and nearly all maintain dedicated academic integrity committees responsible for investigation and adjudication.</p>
+    <p></p>
+  </div>
+
+  <div class="image-block wide" style="margin:0 auto 48px;">
+   <figure>
+     <img src="image3.jpg" alt="Description" style="width:100%; display:block;">
+     <figcaption>
+       <span class="image-caption-text">The Campus of Hong Kong Baptist University.</span>
+       <span class="image-credit">Photo: ZHANG Yilin</span>
+     </figcaption>
+   </figure>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>At Hong Kong Baptist University, for example, the academic integrity policy explicitly classifies ghostwriting as a serious form of academic misconduct. Penalties range along a graduated scale — from failing the course, to formal disciplinary notation, to suspension, and at the highest level, expulsion. Relevant violations remain in a student's permanent academic record and may affect future academic applications and professional background checks.</p>
+    <p>The institutional framework at mainland universities tends to be more flexible. According to Zou, at her university, if a student's graduation thesis is confirmed to have been ghostwritten, the most severe outcome is denial of both the degree certificate and the graduation certificate. Ghostwriting of course papers is generally handled as academic misconduct, resulting in failure of the course; in severe cases, the student may receive a formal disciplinary warning or heavier penalties. </p>
+    <p>“But expulsion is mainly for attitude problems, not for the act itself,” she added.</p>
+    <p>Currently, no law in China specifically prohibits ghostwriting academic papers.</p>
+    <p>The only relevant directive is a 2018 Ministry of Education notice calling for strict investigation of the buying, selling and ghostwriting of degree theses at higher education institutions. But this document applies primarily to degree theses, and its constraining force over everyday coursework assignments and homework is limited.</p>
+    <p>The boundaries of the institutional framework end at the text of the regulations. Beyond the text is something harder to quantify.</p>
+    <p>In the open-ended section of the 159 questionnaires, someone wrote: “If you're not going into academia and you have money, just use ghostwriting freely.” </p>
+    <p>Someone else said, “Is studying even useful anymore? As long as you graduate, that's enough.” In the person’s mind, learning has become a means to an end, and the value of learning itself is increasingly being displaced by outcome-oriented thinking.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header animate-in">
+    <div class="section-label">Why Do We Go to University?</div>
+    <h2 class="section-title">The Spirit of Learning</h2>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Dr Wang reflected on the purpose of sending students overseas for education. She said the decision is not simply about obtaining a degree, but about personal development.</p>
+    <p>When students outsource their academic work and spend several years abroad merely accumulating credentials, she argued, the value of those qualifications is fundamentally undermined. A degree earned without genuine effort, she said, ultimately carries little meaning for either the individual or society.</p>
+  </div>
+
+  <div class="pullquote text-col animate-in">
+    <blockquote>"Can you expect someone who never thinks for themselves, who is always passive, to go into a work unit and be proactive and self-motivated? That's impossible. So what is the point of going abroad at all?"</blockquote>
+    <cite>Dr. Wang Xiaoxia, Hebei University of Economics and Business</cite>
+  </div>
+
+  <div class="text-col animate-in">
+    <p>Liang said that what students lose when they pay someone else to do their work is not merely a grade, but something harder to recover. University, she argued, is one of the few periods in a person's life defined not by utility but by the freedom to think.</p>
+    <p>“The most important thing about those four years is learning things that seem useless,” she said — not which courses are easiest to pass, or which internships look best on a resume, but the capacity for curiosity, for independent thought, for being driven by something internal rather than external. </p>
+    <p>“Once that time passes, it doesn't come back,” she added.</p>
+    <p>Dr. Dimple Thadani, a senior lecturer at Hong Kong Baptist University who previously oversaw academic integrity investigations at the University of Nottingham Ningbo China, believes that education surrounding ghostwriting and academic integrity involves three main stages: prevention, detection, and correction. However, she argues that the initial stage—prevention—is the most critical.</p>
+    <p>“The period before an incident occurs is when a person makes a choice. We outline the consequences, and if the stakes are high enough, students will weigh the trade-offs,” she said.</p>
+    <p>As an educator, Liang believes that a teacher's values impact their students. She argues against evaluating students based on utilitarian metrics, instead demonstrating through her own demeanour that a student’s worth extends far beyond academic grades and outward achievements.</p>
+    <p>“I don't necessarily focus on the top performers. Every individual is incredibly precious in my eyes, and I want to see their unique qualities,” she said. Ultimately, Liang hopes her students realise that she sees them as vibrant, whole human beings, rather than reducing them to a set of utilitarian criteria on a piece of paper.</p>
+  </div>
+</section>
+
+  <div class="divider"><hr/></div>
+
+  <div class="text-col animate-in" style="text-align:center; padding-top:8px; padding-bottom:8px;">
+    <p style="font-family:var(--font-serif); font-size:1.0rem; color:var(--text-muted);">*Name changed at the interviewee's request.</p>
+  </div>
+</section>
+
+</div><!-- /.article-body -->
+
+
+<!-- ─────────────────────────────────────────────────────────────
+     AUDIO PLAYER TEMPLATE
+     Usage: Set src on <audio>, update label and description.
+     ───────────────────────────────────────────────────────────── -->
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div style="max-width:600px; margin:0 auto;">
+    <p style="margin-bottom:12px;"><strong>©️ ZHANG Yilin</strong></p>
+    <p>The anonymous survey was distributed via WeChat and Xiaohongshu between February and March 2026. A total of 159 valid responses were collected. Respondents were not randomly sampled; findings reflect the attitudes and experiences of participants who self-selected. Undercover reporting was conducted by posing as a student seeking services from ghostwriting agencies.</p>
+    <p style="margin-top:20px; color:var(--haze-600);">Honours Project of Data and Media Communication Concentration, Journalism Department, Hong Kong Baptist University</p>
+    <p style="margin-top:20px; color:var(--haze-600);">Special thanks to Ms. Denise Tsang and Dr. Bess Wang Yue for their guidance and support throughout this project.</p>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT — Charts, Animations
+     ============================================================ -->
+<script>
+// ── Intersection Observer: animate on scroll ──────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+// ── Bar charts: animate widths ────────────────────────────────
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const bars = e.target.querySelectorAll('.bar-fill[data-width]');
+      bars.forEach(bar => {
+        const maxVal = parseFloat(bar.closest('.bar-chart').querySelectorAll('.bar-fill[data-width]')[0]?.dataset.width || 100);
+        const val = parseFloat(bar.dataset.width);
+        // For count bars, normalise to 100%
+        const isPercent = val <= 100 && String(bar.closest('.bar-row')?.querySelector('.bar-pct')?.textContent || '').includes('%');
+        const pct = isPercent ? val : (val / 159 * 100);
+        bar.style.width = Math.min(pct, 100) + '%';
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.bar-chart').forEach(el => barObserver.observe(el));
+
+// ── Likert bars ───────────────────────────────────────────────
+const likertObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.likert-fill[data-width]').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      likertObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.likert-wrap').forEach(el => likertObserver.observe(el));
+
+// ── Line Chart (Student Enrollment) ──────────────────────────
+(function() {
+  const data = [
+    { year: '2015/16', n: 3326, x: 117 },
+    { year: '2016/17', n: 3411, x: 199 },
+    { year: '2017/18', n: 3460, x: 281 },
+    { year: '2018/19', n: 3646, x: 363 },
+    { year: '2019/20', n: 3812, x: 445 },
+    { year: '2020/21', n: 4259, x: 527 },
+    { year: '2021/22', n: 4749, x: 609 },
+    { year: '2022/23', n: 4855, x: 691 },
+    { year: '2023/24', n: 5297, x: 773 },
+    { year: '2024/25', n: 7496, x: 820 }
+  ];
+
+  const minN = 3000, maxN = 8000;
+  const yBottom = 290, yTop = 40;
+
+  function yPos(n) {
+    return yBottom - ((n - minN) / (maxN - minN)) * (yBottom - yTop);
+  }
+
+  const points = data.map(d => ({ x: d.x, y: yPos(d.n), n: d.n, year: d.year }));
+
+  const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+  const areaPath = `M ${points[0].x} ${yBottom} ` + points.map(p => `L ${p.x} ${p.y}`).join(' ') + ` L ${points[points.length-1].x} ${yBottom} Z`;
+
+  document.getElementById('linePath').setAttribute('d', linePath);
+  document.getElementById('areaPath').setAttribute('d', areaPath);
+
+  const dotsG = document.getElementById('dots');
+  points.forEach(p => {
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', p.x);
+    circle.setAttribute('cy', p.y);
+    circle.setAttribute('r', p.n > 7000 ? 5 : 3.5);
+    circle.setAttribute('fill', p.n > 7000 ? '#213650' : '#5a7d9a');
+    circle.setAttribute('stroke', '#f6f8fb');
+    circle.setAttribute('stroke-width', '1.5');
+    dotsG.appendChild(circle);
+  });
+
+  // Animate line on scroll
+  const svg = document.getElementById('lineChart');
+  const lineEl = document.getElementById('linePath');
+  const len = lineEl.getTotalLength ? lineEl.getTotalLength() : 1000;
+  lineEl.style.strokeDasharray = len;
+  lineEl.style.strokeDashoffset = len;
+  lineEl.style.transition = 'stroke-dashoffset 1.8s ease-in-out';
+
+  const areaEl = document.getElementById('areaPath');
+  areaEl.style.opacity = '0';
+  areaEl.style.transition = 'opacity 0.8s ease 1.5s';
+
+  const callout = document.getElementById('callout');
+  const annotation = document.getElementById('annotation');
+
+  const chartObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        lineEl.style.strokeDashoffset = '0';
+        setTimeout(() => {
+          areaEl.style.opacity = '1';
+          callout.style.transition = 'opacity 0.5s ease';
+          callout.style.opacity = '1';
+          annotation.style.transition = 'opacity 0.5s ease 0.3s';
+          annotation.style.opacity = '1';
+        }, 1600);
+        chartObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  chartObs.observe(svg);
+})();
+
+// ── Age bar chart ─────────────────────────────────────────────
+(function() {
+  const bars = [
+    { id: 'bar-18-20', lbl: 'lbl-18-20', n: 38, max: 80 },
+    { id: 'bar-21-23', lbl: 'lbl-21-23', n: 80, max: 80 },
+    { id: 'bar-24-26', lbl: 'lbl-24-26', n: 27, max: 80 },
+    { id: 'bar-27plus', lbl: 'lbl-27plus', n: 12, max: 80 }
+  ];
+
+  const HEIGHT = 90;
+  const ageObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        bars.forEach((b, i) => {
+          const el = document.getElementById(b.id);
+          const lblEl = document.getElementById(b.lbl);
+          const h = (b.n / b.max) * HEIGHT;
+          const y = 105 - h;
+          setTimeout(() => {
+            if(el) {
+              el.setAttribute('height', h);
+              el.setAttribute('y', y);
+              if(lblEl) lblEl.setAttribute('y', y + h/2 + 4);
+            }
+          }, i * 100 + 200);
+        });
+        ageObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const ageSvg = document.querySelector('#bar-18-20')?.closest('svg');
+  if(ageSvg) ageObs.observe(ageSvg);
+})();
+
+// ── Donut Chart ───────────────────────────────────────────────
+(function() {
+  const svg = document.getElementById('donutChart');
+  if (!svg) return;
+
+  const segments = [
+    { pct: 19.44, color: '#213650' },
+    { pct: 43.06, color: '#3f6180' },
+    { pct: 20.83, color: '#7d9ab5' },
+    { pct: 13.89, color: '#b8ccd9' },
+    { pct: 2.78,  color: '#e4ebf2' }
+  ];
+
+  const cx = 100, cy = 100, r = 68, stroke = 28;
+  const circ = 2 * Math.PI * r;
+
+  let offset = 0;
+  segments.forEach(seg => {
+    const dashLen = (seg.pct / 100) * circ;
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', cx);
+    circle.setAttribute('cy', cy);
+    circle.setAttribute('r', r);
+    circle.setAttribute('fill', 'none');
+    circle.setAttribute('stroke', seg.color);
+    circle.setAttribute('stroke-width', stroke);
+    circle.setAttribute('stroke-dasharray', `${dashLen} ${circ - dashLen}`);
+    circle.setAttribute('stroke-dashoffset', circ * 0.25 - offset);
+    circle.style.transformOrigin = 'center';
+    svg.appendChild(circle);
+    offset += dashLen;
+  });
+
+  // Centre label
+  const txt1 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  txt1.setAttribute('x', cx); txt1.setAttribute('y', cy - 4);
+  txt1.setAttribute('text-anchor', 'middle');
+  txt1.setAttribute('font-family', 'IBM Plex Sans, sans-serif');
+  txt1.setAttribute('font-size', '20');
+  txt1.setAttribute('font-weight', '600');
+  txt1.setAttribute('fill', '#2f4d68');
+  txt1.textContent = '62.5%';
+  svg.appendChild(txt1);
+
+  const txt2 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  txt2.setAttribute('x', cx); txt2.setAttribute('y', cy + 13);
+  txt2.setAttribute('text-anchor', 'middle');
+  txt2.setAttribute('font-family', 'IBM Plex Sans, sans-serif');
+  txt2.setAttribute('font-size', '9');
+  txt2.setAttribute('fill', '#7d9ab5');
+  txt2.textContent = 'feel conflict';
+  svg.appendChild(txt2);
+})();
+
+// ── Audio Player ──────────────────────────────────────────────
+let isPlaying = false;
+let audioEl = null;
+
+function togglePlay() {
+  if (!audioEl) {
+    audioEl = document.getElementById('audioEl');
+    if (!audioEl) {
+      // Demo mode: fake progress
+      isPlaying = !isPlaying;
+      document.getElementById('playIcon').style.display = isPlaying ? 'none' : 'block';
+      document.getElementById('pauseIcon').style.display = isPlaying ? 'block' : 'none';
+      if (isPlaying) fakeProg();
+      return;
+    }
+  }
+
+  if (isPlaying) {
+    audioEl.pause();
+  } else {
+    audioEl.play();
+  }
+  isPlaying = !isPlaying;
+  document.getElementById('playIcon').style.display = isPlaying ? 'none' : 'block';
+  document.getElementById('pauseIcon').style.display = isPlaying ? 'block' : 'none';
+}
+
+let fakeSec = 0;
+function fakeProg() {
+  if (!isPlaying) return;
+  fakeSec += 0.5;
+  const total = 90;
+  const pct = Math.min(fakeSec / total * 100, 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressThumb').style.left = pct + '%';
+  const m = Math.floor(fakeSec / 60);
+  const s = Math.floor(fakeSec % 60);
+  document.getElementById('currentTime').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  document.getElementById('totalTime').textContent = '1:30';
+  if (pct < 100) setTimeout(fakeProg, 500);
+}
+
+function seekAudio(e) {
+  const track = document.getElementById('progressTrack');
+  const rect = track.getBoundingClientRect();
+  const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+  document.getElementById('progressFill').style.width = (pct * 100) + '%';
+  document.getElementById('progressThumb').style.left = (pct * 100) + '%';
+}
+</script>
+
+</body>
+</html>
