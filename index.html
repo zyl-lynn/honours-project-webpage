@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How a Ghostwriting Industry Followed China's Students Abroad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
@@ -494,7 +492,7 @@ p + p { margin-top: 1.4em; }
 
 .demo-cell {
   background: var(--bg-card);
-  padding: 24px;
+  padding: 6px;
 }
 
 .demo-cell-title {
@@ -1049,14 +1047,167 @@ footer strong { color: var(--haze-300); font-weight: 500; }
   transition: width 1.2s cubic-bezier(.4,0,.2,1);
   width: 0;
 }
+
+/* ============================================================
+   SCROLLYTELLING STICKY SCROLL STYLES
+   ============================================================ */
+/* Outer wrapper */
+.scroll-outer {
+  background: var(--bg-page);
+  padding: 0 24px;
+  margin-bottom: 60px;
+}
+
+/* Inner container — max width, two-column flex */
+.scroll-container {
+  max-width: var(--col-full);      /* 1200px */
+  margin: 0 auto;
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* LEFT column: text steps */
+.scroll-text {
+  flex: 0 0 420px;         /* fixed width left column */
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* Each individual text block */
+.step {
+  min-height: 70vh;           /* tall enough to make chart "feel" sticky */
+  padding: 56px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--haze-100);
+  opacity: 0.45;              /* dim inactive steps */
+  transition: opacity 0.4s ease;
+}
+.step:last-child { border-bottom: none; min-height: 50vh; }
+
+/* Active step gets full opacity */
+.step.is-active { opacity: 1; }
+
+/* Step label pill above each text block */
+.step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-muted);
+  margin-bottom: 16px;
+}
+.step-tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--accent-muted);
+}
+
+.step h3 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--haze-800);
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+
+.step p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.78;
+}
+.step p + p { margin-top: 1em; }
+
+/* RIGHT column: sticky chart panel */
+.scroll-graphic {
+  flex: 1;
+  position: sticky;
+  top: 40px;                  /* distance from top of viewport */
+  align-self: flex-start;     /* required for sticky inside flex */
+  height: calc(100vh - 80px);
+  max-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Each chart panel — hidden by default */
+.chart-panel {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Active panel becomes visible */
+.chart-panel.active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  position: relative;   /* takes up space when active */
+}
+
+/* Strip extra margin from infographic-wrap when inside sticky panel */
+.scroll-graphic .infographic-wrap {
+  margin: 0;
+  width: 100%;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 900px) {
+  .scroll-container {
+    flex-direction: column;
+    gap: 0;
+  }
+  .scroll-text {
+    flex: 0 0 auto;
+    width: 100%;
+    padding-top: 0;
+  }
+  .scroll-graphic {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: none;
+    width: 100%;
+    margin-bottom: 20px;
+    display: block;
+  }
+  /* On mobile, all panels show stacked; hide via display none, show active */
+  .chart-panel {
+    display: none;
+    position: relative;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    margin-bottom: 24px;
+  }
+  .chart-panel.active {
+    display: block;
+  }
+  .step {
+    min-height: auto;
+    padding: 32px 0;
+    opacity: 1;      /* all steps full opacity on mobile */
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-label">Investigative Report &mdash; Academic Integrity</div>
@@ -1069,9 +1220,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 </header>
 
 
-<!-- ============================================================
-     SECTION 1 — OPENING NARRATIVE
-     ============================================================ -->
 <div class="article-body">
   <div class="image-block wide" style="margin:0 auto 48px;">
    <figure>
@@ -1115,18 +1263,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>Across mainland China, many vendors offer ghostwriting services. They are active on social media platforms such as Xiaohongshu and WeChat, and can also be found on Goofish, the secondhand trading platform.</p>
     <p>Their clients include not only university students studying in mainland China, but also Chinese international students overseas, as these services have expanded beyond the border.</p>
     <p></p>
-    <!-- <div class="wide-col animate-in">
-      <figure class="video-block">
-        <div class="video-ratio">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/Ppm3l1iZraA?si=6zfbkM3lpJZioYnX" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <figcaption class="video-caption">
-          <span class="video-caption-text">This video explains how universities define academic ghostwriting. </span>
-          <span class="video-credit">Video: ZHANG Yilin</span>
-        </figcaption>
-     </figure>
-    </div> -->
-    
     <div class="image-block wide" style="margin:0 auto 48px;">
       <figure>
         <video controls width="100%" poster="cover_image.png">
@@ -1140,12 +1276,7 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       </figure>
     </div>
     
-      <!--<figcaption class="video-caption">
-          <span class="video-caption-text">This video explains how universities define academic ghostwriting </span>
-          <span class="video-credit">©️ZHANG Yilin</span>
-      </figcaption>-->
-    
-    <p></p>
+      <p></p>
     <p>Take Hong Kong as an example. According to the academic integrity policy of Hong Kong Baptist University, ghostwriting is classified as a form of academic dishonesty. It refers to having someone perform academic work—either partially or in full—on a student’s behalf. </p>
     <p>Essay and paper mills, meanwhile, involve purchasing or downloading ready-made or machine-generated assignments.</p>
     <p>All eight publicly funded universities in Hong Kong adopt a zero-tolerance policy toward academic dishonesty, and half of them explicitly state that ghostwriting is prohibited in their academic integrity policy. </p>
@@ -1157,9 +1288,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 </section>
 
 
-<!-- ============================================================
-     SECTION 2 — A RISING BUSINESS (Student enrollment chart)
-     ============================================================ -->
 <section class="section">
   <div class="section-header animate-in">
     <div class="section-label">About the Business</div>
@@ -1171,7 +1299,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>According to data from Hong Kong’s University Grants Committee, the annual intake of mainland undergraduate students at the city’s eight publicly funded universities has steadily increased over the past decade, reaching approximately 7,500 in the 2024–25 academic year.</p>
   </div>
 
-  <!-- CHART: Annual Mainland Student Intake -->
   <div class="wide-col animate-in">
     <div class="infographic-wrap wide">
       <div class="infographic-header">
@@ -1188,7 +1315,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
             </linearGradient>
           </defs>
 
-          <!-- Grid lines -->
           <g stroke="#e4ebf2" stroke-width="1">
             <line x1="80" y1="40" x2="820" y2="40"/>
             <line x1="80" y1="96" x2="820" y2="96"/>
@@ -1198,7 +1324,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
             <line x1="80" y1="290" x2="820" y2="290"/>
           </g>
 
-          <!-- Y axis labels -->
           <g font-family="IBM Plex Sans, sans-serif" font-size="15" fill="#94aab8" text-anchor="end">
             <text x="72" y="44">8,000</text>
             <text x="72" y="100">7,000</text>
@@ -1208,16 +1333,12 @@ footer strong { color: var(--haze-300); font-weight: 500; }
             <text x="72" y="293">3,500</text>
           </g>
 
-          <!-- Area fill -->
           <path id="areaPath" fill="url(#areaGrad)" d=""/>
 
-          <!-- Line -->
           <path id="linePath" fill="none" stroke="#3f6180" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d=""/>
 
-          <!-- Dots -->
           <g id="dots"></g>
 
-          <!-- X axis labels -->
           <g font-family="IBM Plex Sans, sans-serif" font-size="15" fill="#94aab8" text-anchor="middle">
             <text x="117" y="312">2015</text>
             <text x="199" y="312">2016</text>
@@ -1231,17 +1352,14 @@ footer strong { color: var(--haze-300); font-weight: 500; }
             <text x="820" y="312">2024</text>
           </g>
 
-          <!-- Axes -->
           <line x1="80" y1="290" x2="820" y2="290" stroke="#cfd8e6" stroke-width="1"/>
           <line x1="80" y1="40" x2="80" y2="290" stroke="#e4ebf2" stroke-width="1"/>
 
-          <!-- Latest callout -->
           <g id="callout" opacity="0">
             <rect x="783" y="18" width="65" height="25" rx="2" fill="#213650"/>
             <text x="815" y="35" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="700" fill="#b8ccd9" text-anchor="middle">7,496</text>
           </g>
 
-          <!-- +40% annotation -->
           <g id="annotation" opacity="0">
             <text x="700" y="115" font-family="Roboto, sans-serif" font-size="22" font-weight="bold" fill="#5a7d9a">+40%</text>
             <text x="700" y="130" font-family="Roboto, sans-serif" font-size="17" font-weight="bold" fill="#5a7d9a">in one year</text>
@@ -1281,248 +1399,248 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>In his undergraduate years on the mainland, much of his assessment had been non-standardised. If a student cultivated a good relationship with a teacher in advance, the teacher might give a relatively favourable grade based on the student's general performance.</p>
     <p>“That’s completely impossible here in Macau—you wouldn’t even dare bring it up to a professor,” L added. “They might tell you it is academic dishonesty and send you a formal accusation letter.”</p>
     <p>To find out the extent and reasons behind students spending on ghostwriting services, the reporter conducted an anonymous questionnaire to students from mainland China currently enrolled at universities on the mainland or overseas.</p>
-    <p>The survey was distributed on social media platforms WeChat and Xiaohongshu, which are among China’s biggest social media channels and are popular with mainland students.</p>
-    <p>A total of 159 valid responses were collected. Respondents were primarily undergraduates between the ages of 21 and 23.</p>
-    <p>Approximately half were studying at mainland Chinese universities, around 40 per cent at universities in Hong Kong, and the remainder at institutions in the United States, the United Kingdom, Australia, and elsewhere.</p>
+    <p></p>
+  </div>
 </section>
-  <!-- <div class="pullquote text-col animate-in">
-    <blockquote>"If they choose to study abroad, they need to adapt to these overseas teaching methods and academic norms."</blockquote>
-    <cite>Dr. Wang Xiaoxia, Hebei University of Economics and Business</cite>
-  </div> -->
 
-<!-- ============================================================
-     SECTION 3 — SURVEY DEMOGRAPHICS
-     ============================================================ -->
+<!-- <div class="section" style="margin-bottom: 0;">
+  <div class="section-header animate-in">
+    <div class="section-label">Survey Findings</div>
+    <h2 class="section-title">Who We Surveyed — and What They Said</h2>
+  </div>
+</div> -->
+<section class="section">
+  <div class="scroll-outer">
+    <div class="scroll-container">
+      
+      <div class="scroll-text">
+        <div class="step is-active" data-chart="0">
+          <div class="step-tag">Survey · Demographics</div>
+          <h3>Who Responded: 159 Students from Mainland China</h3>
+          <p>The survey was distributed on social media platforms WeChat and Xiaohongshu, which are among China’s biggest social media channels and are popular with mainland students.</p>
+          <p>A total of 159 valid responses were collected. Respondents were primarily undergraduates between the ages of 21 and 23.</p>
+          <p>Approximately half are studying at mainland Chinese universities, around 40 per cent at universities in Hong Kong, and the remainder at institutions in the United States, the United Kingdom, Australia, and elsewhere.</p>
+        </div>
+
+        <div class="step" data-chart="1">
+          <div class="step-tag">Survey · Study Abroad Challenges</div>
+          <h3>Language and Culture — the Hardest Walls to Climb</h3>
+          <p>Among respondents studying outside mainland China, more than 60 per cent reported experiencing significant or extreme academic pressure.</p>
+          <p>When asked about the greatest challenges of studying abroad, the phrases cited most frequently were: “insufficient English and academic writing ability”, “loneliness and psychological stress”, “differences in culture and teaching style”, and “high academic demands and heavy workload”.</p>
+        </div>
+
+        <div class="step" data-chart="2">
+          <div class="step-tag">Survey · Mindset Conflict</div>
+          <h3>Caught Between Two Ways of Thinking</h3>
+          <p>Among those with overseas study experience, more than 60 per cent felt there was a conflict between the test-oriented thinking instilled on the mainland and the critical thinking required by foreign universities. Only two respondents said there was “no conflict at all”.</p>
+        </div>
+      </div>
+
+      <div class="scroll-graphic">
+        
+        <div class="chart-panel active" data-index="0">
+          <div class="infographic-wrap wide">
+            <div class="infographic-header">
+              <h3>Respondent Demographics: Survey on Essay Ghostwriting</h3>
+              <p>Analysis of 159 participants from university channels</p>
+            </div>
+            <div class="infographic-body">
+              <div class="demo-grid">
+                <div class="demo-cell" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+                  <div class="demo-cell-title">Total Respondents</div>
+                  <div style="font-family:var(--font-serif); font-size:4rem; font-weight:700; color:var(--haze-700); line-height:1;">159</div>
+                  <div style="font-size:0.75rem; color:var(--text-muted); margin-top:6px;">Valid survey responses collected</div>
+                </div>
+
+                <div class="demo-cell">
+                  <div class="demo-cell-title">University Geographic Distribution</div>
+                  <div class="bar-chart" style="gap:8px;">
+                    <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                      <div class="bar-label" style="font-size:0.78rem;">Mainland China</div>
+                      <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="70" style="background:var(--haze-600);"></div></div>
+                      <div class="bar-pct">70</div>
+                    </div>
+                    <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                      <div class="bar-label" style="font-size:0.78rem;">Hong Kong SAR</div>
+                      <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="59" style="background:var(--haze-500);"></div></div>
+                      <div class="bar-pct">59</div>
+                    </div>
+                    <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                      <div class="bar-label" style="font-size:0.78rem;">United States</div>
+                      <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="4" style="background:var(--haze-400);"></div></div>
+                      <div class="bar-pct">4</div>
+                    </div>
+                    <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                      <div class="bar-label" style="font-size:0.78rem;">Australia</div>
+                      <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-400);"></div></div>
+                      <div class="bar-pct">3</div>
+                    </div>
+                    <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                      <div class="bar-label" style="font-size:0.78rem;">United Kingdom</div>
+                      <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-400);"></div></div>
+                      <div class="bar-pct">3</div>
+                    </div>
+                    <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
+                      <div class="bar-label" style="font-size:0.78rem;">Macau &amp; others</div>
+                      <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-300);"></div></div>
+                      <div class="bar-pct">3</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="demo-cell">
+                  <div class="demo-cell-title">Age of Respondents</div>
+                  <svg viewBox="0 0 320 150" width="100%" style="max-height:150px; display:block;">
+                    <g font-family="IBM Plex Sans, sans-serif">
+                      <rect x="30" y="105" width="50" height="0" fill="var(--haze-500)" rx="2" id="bar-18-20"/>
+                      <rect x="100" y="105" width="50" height="0" fill="var(--haze-600)" rx="2" id="bar-21-23"/>
+                      <rect x="170" y="105" width="50" height="0" fill="var(--haze-400)" rx="2" id="bar-24-26"/>
+                      <rect x="240" y="105" width="50" height="0" fill="var(--haze-300)" rx="2" id="bar-27plus"/>
+
+                      <text x="55" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-18-20">38</text>
+                      <text x="125" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-21-23">80</text>
+                      <text x="195" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-24-26">27</text>
+                      <text x="265" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-27plus">12</text>
+
+                      <text x="55" y="134" text-anchor="middle" font-size="10" fill="#94aab8">18–20</text>
+                      <text x="125" y="134" text-anchor="middle" font-size="10" fill="#94aab8">21–23</text>
+                      <text x="195" y="134" text-anchor="middle" font-size="10" fill="#94aab8">24–26</text>
+                      <text x="265" y="134" text-anchor="middle" font-size="10" fill="#94aab8">27+</text>
+                    </g>
+                  </svg>
+                </div>
+
+                <div class="demo-cell">
+                  <div class="demo-cell-title">Education Level</div>
+                  <div class="stat-grid" style="grid-template-columns:1fr 1fr; gap:10px;">
+                    <div class="stat-card">
+                      <span class="stat-num">122</span>
+                      <span class="stat-label">Undergraduate</span>
+                    </div>
+                    <div class="stat-card">
+                      <span class="stat-num">12</span>
+                      <span class="stat-label">Master's</span>
+                    </div>
+                    <div class="stat-card">
+                      <span class="stat-num">6</span>
+                      <span class="stat-label">Doctoral</span>
+                    </div>
+                    <div class="stat-card">
+                      <span class="stat-num">17</span>
+                      <span class="stat-label">Already working</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="data-note">Survey distributed via WeChat and Xiaohongshu; Total valid responses: 159; Respondents were primarily undergraduates between the ages of 21 and 23.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-panel" data-index="1">
+          <div class="infographic-wrap wide">
+            <div class="infographic-header">
+              <h3>The Biggest Challenges of Studying Abroad</h3>
+              <p>% of respondents who selected each option</p>
+            </div>
+            <div class="infographic-body">
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <div class="bar-label">English / Academic writing</div>
+                  <div class="bar-track"><div class="bar-fill highlight" data-width="68.1"></div></div>
+                  <div class="bar-pct">68.1%</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Loneliness / Psychological stress</div>
+                  <div class="bar-track"><div class="bar-fill" data-width="43.1"></div></div>
+                  <div class="bar-pct">43.1%</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Culture / Teaching differences</div>
+                  <div class="bar-track"><div class="bar-fill" data-width="41.7"></div></div>
+                  <div class="bar-pct">41.7%</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">High academic demands</div>
+                  <div class="bar-track"><div class="bar-fill" data-width="38.9"></div></div>
+                  <div class="bar-pct">38.9%</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Time management difficulties</div>
+                  <div class="bar-track"><div class="bar-fill" data-width="31.9"></div></div>
+                  <div class="bar-pct">31.9%</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Financial pressure</div>
+                  <div class="bar-track"><div class="bar-fill" data-width="31.9"></div></div>
+                  <div class="bar-pct">31.9%</div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Other</div>
+                  <div class="bar-track"><div class="bar-fill" data-width="2.8"></div></div>
+                  <div class="bar-pct">2.8%</div>
+                </div>
+              </div>
+              <p class="data-note">Valid respondents: 72 (overseas students only). Multiple responses allowed. Frequency shown as percentage of respondents.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-panel" data-index="2">
+          <div class="infographic-wrap wide">
+            <div class="infographic-header">
+              <h3>Conflict Between Exam-Oriented Mindset &amp; Critical Thinking</h3>
+              <p>Do you feel that the mainland high-school exam mentality conflicts with overseas critical thinking requirements? </p>
+            </div>
+            <div class="infographic-body">
+              <div class="donut-wrap">
+                <svg viewBox="0 0 200 200" width="200" height="200" style="flex-shrink:0;" id="donutChart">
+                  <circle cx="100" cy="100" r="68" fill="none" stroke="var(--haze-100)" stroke-width="28"/>
+                  </svg>
+                <div class="donut-legend">
+                  <div class="legend-item">
+                    <div class="legend-dot" style="background:#213650;"></div>
+                    <span>Yes, very visible</span>
+                    <span class="legend-pct">19.4%</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-dot" style="background:#3f6180;"></div>
+                    <span>Yes, slightly visible</span>
+                    <span class="legend-pct">43.1%</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-dot" style="background:#7d9ab5;"></div>
+                    <span>Average / Neutral</span>
+                    <span class="legend-pct">20.8%</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-dot" style="background:#b8ccd9;"></div>
+                    <span>Not obvious</span>
+                    <span class="legend-pct">13.9%</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-dot" style="background:#e4ebf2;"></div>
+                    <span>None at all</span>
+                    <span class="legend-pct">2.8%</span>
+                  </div>
+                  <div style="margin-top:12px; padding:10px 12px; background:var(--haze-50); border:1px solid var(--haze-200);">
+                    <div style="font-size:0.7rem; color:var(--text-muted); font-family:var(--font-sans); margin-bottom:2px;">Combined "Yes" responses</div>
+                    <div style="font-family:var(--font-serif); font-size:1.5rem; font-weight:700; color:var(--haze-700);">62.5%</div>
+                  </div>
+                </div>
+              </div>
+              <p class="data-note">Only respondents with overseas study experience answered this question (n=72).</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section">
-
-  <!-- DEMOGRAPHICS INFOGRAPHIC -->
-  <div class="wide-col animate-in">
-    <div class="infographic-wrap wide">
-      <div class="infographic-header">
-        <h3>Respondent Demographics: Survey on Essay Ghostwriting</h3>
-        <p>Analysis of 159 participants from university channels</p>
-      </div>
-      <div class="infographic-body">
-        <div class="demo-grid">
-          <!-- Total -->
-          <div class="demo-cell" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-            <div class="demo-cell-title">Total Respondents</div>
-            <div style="font-family:var(--font-serif); font-size:4rem; font-weight:700; color:var(--haze-700); line-height:1;">159</div>
-            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:6px;">Valid survey responses collected</div>
-          </div>
-
-          <!-- Location -->
-          <div class="demo-cell">
-            <div class="demo-cell-title">University Geographic Distribution</div>
-            <div class="bar-chart" style="gap:8px;">
-              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
-                <div class="bar-label" style="font-size:0.78rem;">Mainland China</div>
-                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="70" style="background:var(--haze-600);"></div></div>
-                <div class="bar-pct">70</div>
-              </div>
-              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
-                <div class="bar-label" style="font-size:0.78rem;">Hong Kong SAR</div>
-                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="59" style="background:var(--haze-500);"></div></div>
-                <div class="bar-pct">59</div>
-              </div>
-              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
-                <div class="bar-label" style="font-size:0.78rem;">United States</div>
-                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="4" style="background:var(--haze-400);"></div></div>
-                <div class="bar-pct">4</div>
-              </div>
-              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
-                <div class="bar-label" style="font-size:0.78rem;">Australia</div>
-                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-400);"></div></div>
-                <div class="bar-pct">3</div>
-              </div>
-              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
-                <div class="bar-label" style="font-size:0.78rem;">United Kingdom</div>
-                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-400);"></div></div>
-                <div class="bar-pct">3</div>
-              </div>
-              <div class="bar-row" style="grid-template-columns:130px 1fr 48px;">
-                <div class="bar-label" style="font-size:0.78rem;">Macau &amp; others</div>
-                <div class="bar-track" style="height:18px;"><div class="bar-fill" data-width="3" style="background:var(--haze-300);"></div></div>
-                <div class="bar-pct">3</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Age -->
-          <div class="demo-cell">
-            <div class="demo-cell-title">Age of Respondents</div>
-            <svg viewBox="0 0 320 150" width="100%" style="max-height:150px; display:block;">
-              <!-- Bars -->
-              <g font-family="IBM Plex Sans, sans-serif">
-                <!-- 18-20: 38 -->
-                <rect x="30" y="105" width="50" height="0" fill="var(--haze-500)" rx="2" id="bar-18-20"/>
-                <!-- 21-23: 80 -->
-                <rect x="100" y="105" width="50" height="0" fill="var(--haze-600)" rx="2" id="bar-21-23"/>
-                <!-- 24-26: 27 -->
-                <rect x="170" y="105" width="50" height="0" fill="var(--haze-400)" rx="2" id="bar-24-26"/>
-                <!-- 27+: 12 -->
-                <rect x="240" y="105" width="50" height="0" fill="var(--haze-300)" rx="2" id="bar-27plus"/>
-
-                <!-- Labels -->
-                <text x="55" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-18-20">38</text>
-                <text x="125" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-21-23">80</text>
-                <text x="195" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-24-26">27</text>
-                <text x="265" y="120" text-anchor="middle" font-size="10" fill="white" font-weight="600" id="lbl-27plus">12</text>
-
-                <!-- X labels -->
-                <text x="55" y="134" text-anchor="middle" font-size="10" fill="#94aab8">18–20</text>
-                <text x="125" y="134" text-anchor="middle" font-size="10" fill="#94aab8">21–23</text>
-                <text x="195" y="134" text-anchor="middle" font-size="10" fill="#94aab8">24–26</text>
-                <text x="265" y="134" text-anchor="middle" font-size="10" fill="#94aab8">27+</text>
-              </g>
-            </svg>
-          </div>
-
-          <!-- Education level -->
-          <div class="demo-cell">
-            <div class="demo-cell-title">Education Level</div>
-            <div class="stat-grid" style="grid-template-columns:1fr 1fr; gap:10px;">
-              <div class="stat-card">
-                <span class="stat-num">122</span>
-                <span class="stat-label">Undergraduate</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-num">12</span>
-                <span class="stat-label">Master's</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-num">6</span>
-                <span class="stat-label">Doctoral</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-num">17</span>
-                <span class="stat-label">Already working</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="data-note">Survey distributed via WeChat and Xiaohongshu; Total valid responses: 159; Respondents were primarily undergraduates between the ages of 21 and 23.</p>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ============================================================
-     SECTION 4 — CHALLENGES OF STUDYING ABROAD
-     ============================================================ -->
-
-  <div class="text-col animate-in">
-    <p>Among respondents studying outside mainland China, more than 60 per cent reported experiencing significant or extreme academic pressure. </p>
-    <p>When asked about the greatest challenges of studying abroad, the phrases cited most frequently were: “insufficient English and academic writing ability”, “loneliness and psychological stress”, “differences in culture and teaching style”, and “high academic demands and heavy workload”.</p>
-  </div>
-
-  <!-- CHART: Challenges Bar -->
-  <div class="wide-col animate-in">
-    <div class="infographic-wrap wide">
-      <div class="infographic-header">
-        <h3>The Biggest Challenges of Studying Abroad</h3>
-        <p>% of respondents who selected each option</p>
-      </div>
-      <div class="infographic-body">
-        <div class="bar-chart">
-          <div class="bar-row">
-            <div class="bar-label">English / Academic writing</div>
-            <div class="bar-track"><div class="bar-fill highlight" data-width="68.1"></div></div>
-            <div class="bar-pct">68.1%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">Loneliness / Psychological stress</div>
-            <div class="bar-track"><div class="bar-fill" data-width="43.1"></div></div>
-            <div class="bar-pct">43.1%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">Culture / Teaching differences</div>
-            <div class="bar-track"><div class="bar-fill" data-width="41.7"></div></div>
-            <div class="bar-pct">41.7%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">High academic demands</div>
-            <div class="bar-track"><div class="bar-fill" data-width="38.9"></div></div>
-            <div class="bar-pct">38.9%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">Time management difficulties</div>
-            <div class="bar-track"><div class="bar-fill" data-width="31.9"></div></div>
-            <div class="bar-pct">31.9%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">Financial pressure</div>
-            <div class="bar-track"><div class="bar-fill" data-width="31.9"></div></div>
-            <div class="bar-pct">31.9%</div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-label">Other</div>
-            <div class="bar-track"><div class="bar-fill" data-width="2.8"></div></div>
-            <div class="bar-pct">2.8%</div>
-          </div>
-        </div>
-        <p class="data-note">Valid respondents: 72 (overseas students only). Multiple responses allowed. Frequency shown as percentage of respondents.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="text-col animate-in">
-    <p>Among those with overseas study experience, more than 60 per cent felt there was a conflict between the test-oriented thinking instilled on the mainland and the critical thinking required by foreign universities. Only two respondents said there was “no conflict at all”.</p>
-  </div>
-
-  <!-- CHART: Conflict Exam vs Critical Thinking (Donut) -->
-  <div class="wide-col animate-in">
-    <div class="infographic-wrap wide">
-      <div class="infographic-header">
-        <h3>Conflict Between Exam-Oriented Mindset &amp; Critical Thinking</h3>
-        <p>Do you feel that the mainland high-school exam mentality conflicts with overseas critical thinking requirements? </p>
-      </div>
-      <div class="infographic-body">
-        <div class="donut-wrap">
-          <svg viewBox="0 0 200 200" width="200" height="200" style="flex-shrink:0;" id="donutChart">
-            <!-- Donut slices drawn via JS -->
-            <circle cx="100" cy="100" r="68" fill="none" stroke="var(--haze-100)" stroke-width="28"/>
-            <!-- Slices: None at all 2.78%, Not obvious 13.89%, Average 20.83%, Yes slight 43.06%, Yes very 19.44% -->
-          </svg>
-          <div class="donut-legend">
-            <div class="legend-item">
-              <div class="legend-dot" style="background:#213650;"></div>
-              <span>Yes, very visible</span>
-              <span class="legend-pct">19.4%</span>
-            </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background:#3f6180;"></div>
-              <span>Yes, slightly visible</span>
-              <span class="legend-pct">43.1%</span>
-            </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background:#7d9ab5;"></div>
-              <span>Average / Neutral</span>
-              <span class="legend-pct">20.8%</span>
-            </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background:#b8ccd9;"></div>
-              <span>Not obvious</span>
-              <span class="legend-pct">13.9%</span>
-            </div>
-            <div class="legend-item">
-              <div class="legend-dot" style="background:#e4ebf2;"></div>
-              <span>None at all</span>
-              <span class="legend-pct">2.8%</span>
-            </div>
-            <div style="margin-top:12px; padding:10px 12px; background:var(--haze-50); border:1px solid var(--haze-200);">
-              <div style="font-size:0.7rem; color:var(--text-muted); font-family:var(--font-sans); margin-bottom:2px;">Combined "Yes" responses</div>
-              <div style="font-family:var(--font-serif); font-size:1.5rem; font-weight:700; color:var(--haze-700);">62.5%</div>
-            </div>
-          </div>
-        </div>
-        <p class="data-note">Only respondents with overseas study experience answered this question (n=72).</p>
-      </div>
-    </div>
-  </div>
-
   <div class="text-col animate-in">
     <p>Different languages, different academic systems, and different cultures force newly arrived students to adapt to an entirely new way of thinking—while absorbing the gap between expectation and reality, along with the anxiety that comes with it. And these feelings of displacement have become the fertile ground on which the ghostwriting market takes root and grows.</p>
     <p>In the reporter's survey, 98.1 per cent of the 159 respondents said they had “heard of” or “seen” ghostwriting and essay mill services. Only three respondents selected the “never heard of” option. </p>
@@ -1534,13 +1652,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 
 
 
-  <!-- ============================================================
-     SECTION 5 — AWARENESS + PLATFORM
-     ============================================================ -->
-
-  
-
-  <!-- CHART: Platform frequency — comparative -->
   <div class="wide-col animate-in">
     <div class="infographic-wrap wide">
       <div class="infographic-header">
@@ -1560,7 +1671,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
         </div>
 
         <div class="platform-grid">
-          <!-- Header row -->
           <div class="platform-row" style="font-size:0.7rem; color:var(--text-light); font-weight:500; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">
             <span>Platform</span><span>Mainland (%)</span><span>Overseas (%)</span>
           </div>
@@ -1663,7 +1773,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>Among survey respondents who had used ghostwriting services, nearly 40 per cent said a 2,000-to-3,000-word paper cost approximately 500 to 1,000 yuan. </p>
     <p>More than 30 per cent said the price was approximately 1,000 to 2,000 yuan.</p> 
     <p>Overseas students who had used ghostwriting reported higher average prices than mainland students who had done so.</p>
-    <!-- PRICE KNOWLEDGE CHART -->
     <div class="text-col animate-in">
       <div class="infographic-wrap text-width">
         <div class="infographic-header">
@@ -1714,9 +1823,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 </section>
 
 
-<!-- ============================================================
-     SECTION 6 — WHO IS RUNNING THIS BUSINESS
-     ============================================================ -->
 <section class="section">
   <div class="section-header animate-in">
     <div class="section-label">Behind the Scene</div>
@@ -1728,7 +1834,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>Both were first discovered on Xiaohongshu, but due to the platform’s restrictions and content review of ghostwriting-related posts, all detailed discussions of services and pricing were conducted on WeChat.</p>
   </div>
 
-  <!-- Agency Profile Cards -->
   <div class="wide-col animate-in">
     <div class="infographic-wrap wide">
       <div class="infographic-header">
@@ -1781,9 +1886,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 </section>
 
 
-<!-- ============================================================
-     SECTION 7 — PEIYU TIMELINE (Hand-drawn)
-     ============================================================ -->
 <section class="section handdrawn-section">
   <div class="wide-col">
     <div class="handdrawn-header animate-in">
@@ -1791,32 +1893,23 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       <h3>From Accounting Student to Ghostwriting Studio Owner</h3>
     </div>
 
-    <!-- HAND-DRAWN SVG TIMELINE -->
     <svg id="sketchTimeline" viewBox="0 0 900 620" width="100%" style="display:block; max-height:700px; overflow:visible;" class="animate-in">
-      <!-- Background paper texture suggestion -->
       <rect x="0" y="0" width="900" height="620" fill="#f4f6f9" rx="4"/>
       
-      <!-- Title area -->
       <text x="30" y="37" font-family="Caveat, cursive" font-size="28" font-weight="700" fill="#2f4d68">Peiyu's Path into the Shadow Industry</text>
       <text x="30" y="62" font-family="Caveat, cursive" font-size="24" fill="#7d9ab5">A reconstruction from her public WeChat Moments (2022–2025)</text>
       
-      <!-- Rough horizontal timeline spine with hand-drawn effect -->
       <path d="M 60 130 Q 200 128 350 131 Q 500 129 650 132 Q 780 130 850 131" 
             stroke="#3f6180" stroke-width="2.5" fill="none" 
             stroke-linecap="round" stroke-dasharray="1,0"/>
       
-      <!-- Arrow head at end -->
       <path d="M 845 127 L 858 131 L 845 135" fill="none" stroke="#3f6180" stroke-width="2" stroke-linecap="round"/>
 
-      <!-- NODE 1: 2022 — Undergraduate -->
       <circle cx="90" cy="131" r="7" fill="#213650" stroke="#f4f6f9" stroke-width="2"/>
       
-      <!-- Connector line going down -->
       <path d="M 90 138 Q 88 175 90 200" stroke="#7d9ab5" stroke-width="1.2" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
       
-      <!-- Box 1 -->
       <rect x="20" y="200" width="158" height="88" rx="4" fill="#dce8f0" stroke="#a8bace" stroke-width="1.2" stroke-linejoin="round"/>
-      <!-- rough border effect -->
       <path d="M 22 202 Q 100 199 176 202 Q 178 240 176 286 Q 100 288 22 286 Q 20 248 22 202" fill="none" stroke="#b8ccd9" stroke-width="0.5"/>
       
       <text x="99" y="222" font-family="Caveat, cursive" font-size="25" font-weight="700" fill="#2f4d68" text-anchor="middle">2022</text>
@@ -1824,11 +1917,7 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       <text x="99" y="260" font-family="Caveat, cursive" font-size="18" fill="#3d5166" text-anchor="middle">posting aphorisms</text>
       <text x="99" y="280" font-family="Caveat, cursive" font-size="18" fill="#5a7d9a" text-anchor="middle">Sharing life quotes</text>
 
-      <!-- Sketch figure — student -->
-      <circle cx="99" cy="292" r="0"/> <!-- placeholder -->
-      
-      <!-- NODE 2: Late 2023 -->
-      <circle cx="270" cy="131" r="7" fill="#2f4d68" stroke="#f4f6f9" stroke-width="2"/>
+      <circle cx="99" cy="292" r="0"/> <circle cx="270" cy="131" r="7" fill="#2f4d68" stroke="#f4f6f9" stroke-width="2"/>
       <path d="M 270 138 Q 268 165 270 190" stroke="#7d9ab5" stroke-width="1.2" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
       
       <rect x="196" y="190" width="158" height="105" rx="4" fill="#dce8f0" stroke="#a8bace" stroke-width="1.2"/>
@@ -1840,15 +1929,12 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       <text x="275" y="264" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">Companion group: ¥29.9/mo</text>
       <text x="275" y="281" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">CV editing: ¥9.9/session</text>
 
-      <!-- NODE 3: April 2024 — TURNING POINT -->
       <circle cx="460" cy="131" r="9" fill="#152438" stroke="#7d9ab5" stroke-width="2.5"/>
       <path d="M 460 140 Q 458 165 460 185" stroke="#3f6180" stroke-width="1.5" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
       
-      <!-- Star burst around turning point node -->
       <path d="M 460 118 L 462 124 L 468 122 L 464 127 L 470 131 L 464 131 L 465 137" fill="none" stroke="#6b8fa8" stroke-width="1" opacity="0.6"/>
       <path d="M 450 118 L 452 124 L 448 122 L 452 127 L 446 131 L 452 131 L 451 137" fill="none" stroke="#6b8fa8" stroke-width="1" opacity="0.6"/>
       
-      <!-- Highlight box for turning point -->
       <rect x="374" y="185" width="178" height="135" rx="4" fill="#cfd8e6" stroke="#7d9ab5" stroke-width="1.8"/>
       <path d="M 376 187 Q 463 184 550 187 Q 552 250 550 318 Q 463 320 376 318 Q 374 255 376 187" fill="none" stroke="#94aab8" stroke-width="0.8"/>
       
@@ -1859,7 +1945,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       <text x="463" y="283" font-family="Caveat, cursive" font-size="18" fill="#5a7d9a" text-anchor="middle">"Spent whole day on</text>
       <text x="463" y="300" font-family="Caveat, cursive" font-size="18" fill="#5a7d9a" text-anchor="middle">ghostwriting... so slow"</text>
 
-      <!-- NODE 4: Dec 2024 -->
       <circle cx="660" cy="131" r="7" fill="#2f4d68" stroke="#f4f6f9" stroke-width="2"/>
       <path d="M 660 138 Q 658 165 660 185" stroke="#7d9ab5" stroke-width="1.2" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
       
@@ -1874,7 +1959,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       <text x="662" y="296" font-family="Caveat, cursive" font-size="16" fill="#3f6180" text-anchor="middle">Begins recruiting writers</text>
       <text x="662" y="313" font-family="Caveat, cursive" font-size="16" fill="#3f6180" text-anchor="middle">¥499 training fee</text>
 
-      <!-- NODE 5: July 2025 -->
       <circle cx="840" cy="131" r="8" fill="#152438" stroke="#5a7d9a" stroke-width="2"/>
       <path d="M 840 139 Q 838 165 840 185" stroke="#3f6180" stroke-width="1.5" fill="none" stroke-dasharray="4,3" stroke-linecap="round"/>
       
@@ -1889,29 +1973,24 @@ footer strong { color: var(--haze-300); font-weight: 500; }
       <text x="825" y="298" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">job guarantees,</text>
       <text x="825" y="315" font-family="Caveat, cursive" font-size="16" fill="#5a7d9a" text-anchor="middle">IELTS, remote exams</text>
 
-      <!-- Year labels above nodes -->
       <text x="90" y="115" font-family="Caveat, cursive" font-size="20" fill="#94aab8" text-anchor="middle">2022</text>
       <text x="270" y="115" font-family="Caveat, cursive" font-size="20" fill="#94aab8" text-anchor="middle">Late 2023</text>
       <text x="460" y="112" font-family="Caveat, cursive" font-size="20" fill="#3f6180" font-weight="700" text-anchor="middle">Apr 2024</text>
       <text x="660" y="115" font-family="Caveat, cursive" font-size="20" fill="#94aab8" text-anchor="middle">Dec 2024</text>
       <text x="840" y="115" font-family="Caveat, cursive" font-size="20" fill="#3f6180" font-weight="700" text-anchor="middle">2025 →</text>
       
-      <!-- Bottom annotation box -->
       <rect x="30" y="360" width="840" height="58" rx="4" fill="#e8ecf2" stroke="#cfd8e6" stroke-width="1"/>
       <text x="450" y="381" font-family="Caveat, cursive" font-size="17" fill="#5a7d9a" text-anchor="middle">From one person to a team; She has begun to refocus her target market on international students from the Chinese mainland.</text>
       <text x="450" y="403" font-family="Caveat, cursive" font-size="17" fill="#3d5166" text-anchor="middle">"International students pay so fast — it's great. Seven-page PPT, ¥750. 3,000-word English essay, ¥1,750." — Peiyu, Jan 2025</text>
 
-      <!-- Key income callout arrow -->
       <path d="M 720 295 Q 740 340 660 355" fill="none" stroke="#6b8fa8" stroke-width="1.2" stroke-dasharray="3,2"/>
       <circle cx="660" cy="356" r="2.5" fill="#6b8fa8"/>
       
-      <!-- Handwritten note in corner -->
       <rect x="30" y="430" width="200" height="60" rx="3" fill="white" stroke="#cfd8e6" stroke-width="1" transform="rotate(-1.5, 130, 460)"/>
       <text x="130" y="452" font-family="Caveat, cursive" font-size="15" fill="#637b8f" text-anchor="middle" transform="rotate(-1.5, 130, 460)">Ghostwriting was the entry</text>
       <text x="130" y="468" font-family="Caveat, cursive" font-size="15" fill="#637b8f" text-anchor="middle" transform="rotate(-1.5, 130, 460)">point — the first hook to</text>
       <text x="130" y="484" font-family="Caveat, cursive" font-size="15" fill="#637b8f" text-anchor="middle" transform="rotate(-1.5, 130, 460)">lock in overseas clients.</text>
       
-      <!-- Pin circle on note -->
       <circle cx="130" cy="430" r="5" fill="#7d9ab5" transform="rotate(-1.5, 130, 460)"/>
     </svg>
   </div>
@@ -2108,9 +2187,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 
 </section>
 
-<!-- ============================================================
-     SECTION 8 — WHY STUDENTS DO IT
-     ============================================================ -->
 <section class="section">
   <div class="section-header animate-in">
     <div class="section-label">Motivations</div>
@@ -2122,7 +2198,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>In the survey, 77.7 per cent of respondents said that academic integrity was "important" or "very important”, and more than 60 per cent described the impact of ghostwriting on their own learning outcomes as “negative” or “very negative”.</p>
   </div>
 
-  <!-- KEY STATS ROW -->
   <div class="wide-col animate-in">
     <div class="infographic-wrap wide">
       <div class="infographic-header">
@@ -2180,7 +2255,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
           </div>
         </div>
 
-        <!-- Worry about being caught -->
         <div style="margin-top:24px;">
           <div class="demo-cell-title" style="margin-bottom:14px;">Worry About Being Caught &amp; Punished (Headcount)</div>
           <div class="likert-wrap">
@@ -2317,6 +2391,20 @@ footer strong { color: var(--haze-300); font-weight: 500; }
     <p>Liang said that what students lose when they pay someone else to do their work is not merely a grade, but something harder to recover. University, she argued, is one of the few periods in a person's life defined not by utility but by the freedom to think.</p>
     <p>“The most important thing about those four years is learning things that seem useless,” she said — not which courses are easiest to pass, or which internships look best on a resume, but the capacity for curiosity, for independent thought, for being driven by something internal rather than external. </p>
     <p>“Once that time passes, it doesn't come back,” she added.</p>
+    <p></p>
+  </div>
+
+  <div class="image-block wide" style="margin:0 auto 48px;">
+   <figure>
+     <img src="image5.jpg" alt="Description" style="width:100%; display:block;">
+     <figcaption>
+       <span class="image-caption-text">People are studying in the Boston Public Library, the United States.</span>
+       <span class="image-credit">Photo: ZHANG Yilin</span>
+     </figcaption>
+   </figure>
+  </div>
+
+  <div class="text-col animate-in">
     <p>Dr. Dimple Thadani, a senior lecturer at Hong Kong Baptist University who previously oversaw academic integrity investigations at the University of Nottingham Ningbo China, believes that education surrounding ghostwriting and academic integrity involves three main stages: prevention, detection, and correction. However, she argues that the initial stage—prevention—is the most critical.</p>
     <p>“The period before an incident occurs is when a person makes a choice. We outline the consequences, and if the stakes are high enough, students will weigh the trade-offs,” she said.</p>
     <p>As an educator, Liang believes that a teacher's values impact their students. She argues against evaluating students based on utilitarian metrics, instead demonstrating through her own demeanour that a student’s worth extends far beyond academic grades and outward achievements.</p>
@@ -2329,21 +2417,9 @@ footer strong { color: var(--haze-300); font-weight: 500; }
   <div class="text-col animate-in" style="text-align:center; padding-top:8px; padding-bottom:8px;">
     <p style="font-family:var(--font-serif); font-size:1.0rem; color:var(--text-muted);">*Name changed at the interviewee's request.</p>
   </div>
-</section>
-
-</div><!-- /.article-body -->
 
 
-<!-- ─────────────────────────────────────────────────────────────
-     AUDIO PLAYER TEMPLATE
-     Usage: Set src on <audio>, update label and description.
-     ───────────────────────────────────────────────────────────── -->
-
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer>
+</div><footer>
   <div style="max-width:600px; margin:0 auto;">
     <p style="margin-bottom:12px;"><strong>©️ ZHANG Yilin</strong></p>
     <p>The anonymous survey was distributed via WeChat and Xiaohongshu between February and March 2026. A total of 159 valid responses were collected. Respondents were not randomly sampled; findings reflect the attitudes and experiences of participants who self-selected. Undercover reporting was conducted by posing as a student seeking services from ghostwriting agencies.</p>
@@ -2353,9 +2429,6 @@ footer strong { color: var(--haze-300); font-weight: 500; }
 </footer>
 
 
-<!-- ============================================================
-     JAVASCRIPT — Charts, Animations
-     ============================================================ -->
 <script>
 // ── Intersection Observer: animate on scroll ──────────────────
 const observer = new IntersectionObserver((entries) => {
@@ -2617,6 +2690,78 @@ function seekAudio(e) {
   document.getElementById('progressFill').style.width = (pct * 100) + '%';
   document.getElementById('progressThumb').style.left = (pct * 100) + '%';
 }
+
+// ── Scrollytelling chart swap ──────────────────────────────────
+(function() {
+  const steps   = document.querySelectorAll('.step[data-chart]');
+  const panels  = document.querySelectorAll('.chart-panel[data-index]');
+  if (!steps.length || !panels.length) return;
+
+  function activateChart(idx) {
+    /* Swap chart panel */
+    panels.forEach(p => p.classList.remove('active'));
+    const target = document.querySelector(`.chart-panel[data-index="${idx}"]`);
+    if (!target) return;
+    target.classList.add('active');
+
+    /* Highlight the active step, dim others */
+    steps.forEach(s => s.classList.remove('is-active'));
+    const activeStep = document.querySelector(`.step[data-chart="${idx}"]`);
+    if (activeStep) activeStep.classList.add('is-active');
+
+    /* Re-trigger bar animations inside the newly active panel */
+    target.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
+      /* Reset and re-animate bars that haven't been triggered yet */
+      const currentWidth = parseFloat(bar.style.width) || 0;
+      if (currentWidth === 0) {
+        const val = parseFloat(bar.dataset.width);
+        const isPercent = val <= 100 &&
+          String(bar.closest('.bar-row')?.querySelector('.bar-pct')?.textContent || '').includes('%');
+        const pct = isPercent ? val : (val / 159 * 100);
+        setTimeout(() => { bar.style.width = Math.min(pct, 100) + '%'; }, 100);
+      }
+    });
+
+    /* Re-trigger age bars if Demographics panel is activated */
+    if (idx === '0') {
+      const ageBars = [
+        { id:'bar-18-20', lbl:'lbl-18-20', n:38, max: 80 },
+        { id:'bar-21-23', lbl:'lbl-21-23', n:80, max: 80 },
+        { id:'bar-24-26', lbl:'lbl-24-26', n:27, max: 80 },
+        { id:'bar-27plus', lbl:'lbl-27plus', n:12, max: 80 }
+      ];
+      const HEIGHT = 90;
+      ageBars.forEach((b, i) => {
+        const el = document.getElementById(b.id);
+        const lblEl = document.getElementById(b.lbl);
+        if (!el || parseFloat(el.getAttribute('height') || 0) > 0) return;
+        const h = (b.n / b.max) * HEIGHT;
+        const y = 105 - h;
+        setTimeout(() => {
+          el.setAttribute('height', h); el.setAttribute('y', y);
+          if (lblEl) lblEl.setAttribute('y', y + h/2 + 4);
+        }, i * 100 + 150);
+      });
+    }
+  }
+
+  /* IntersectionObserver — fires when step enters the trigger zone */
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        activateChart(entry.target.dataset.chart);
+      }
+    });
+  }, {
+    threshold: 0,
+    rootMargin: '-15% 0px -45% 0px'
+  });
+
+  steps.forEach(step => stepObserver.observe(step));
+
+  /* Make sure chart 0 is active immediately on load */
+  activateChart('0');
+})();
 </script>
 
 </body>
